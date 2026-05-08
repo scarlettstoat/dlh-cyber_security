@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+#This script manages the daemon script, i.e., start,stop,restart
+
+FILE="/tmp/my_process.pid"
+
+start_process() {
+	./manage_my_process &
+	echo $! > "$FILE"
+	echo "manage_my_process started"
+}
+
+stop_process() {
+	if [ -f "$FILE" ]; then
+	kill "$(cat "$FILE")"
+	rm -f "$FILE"
+	fi
+	echo "manage_my_process stopped"
+}
+
+restart_process () {
+	stop_process
+	start_process
+	echo "manage_my_process restarted"
+}
+
+case "$1" in
+	start)
+		start_process
+		;;
+	stop)
+		stop_process
+		;;
+	restart)
+		restart_process
+		;;
+	*)
+		echo "Usage: manage_my_process {start|stop|restart}"
+		;;
+esac
