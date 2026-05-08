@@ -18,8 +18,12 @@ stop_process() {
 }
 
 restart_process () {
-	stop_process
-	start_process
+	if [ -f "$FILE" ]; then
+		kill "$(cat "$FILE")"
+		rm -f "$FILE"
+	fi
+	./manage_my_process &
+	echo $! > "$FILE"
 	echo "manage_my_process restarted"
 }
 
