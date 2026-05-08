@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+#This script prings a message, saves its PID, and handkes signals
+
+echo $$ > /tmp/myscript.pid
+
+trap 'echo "Y U no love me?!"' SIGINT
+trap 'echo "I hate the kill command"' SIGTERM
+trap 'rm -f /tmp/myscript.pid; exit' SIGQUIT SIGTERM
+
+while true
+do
+	echo "To infinity and beyond"
+	sleep 1
+done
