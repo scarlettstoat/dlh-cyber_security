@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Stops task 7 processes without using the kill or killall command/script
+
+pkill -f 7-highlander
