@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# This script shows lines containing bash in order to identift the Bash process PID
+# shellcheck disable=SC2009
+ps auc | grep bash
