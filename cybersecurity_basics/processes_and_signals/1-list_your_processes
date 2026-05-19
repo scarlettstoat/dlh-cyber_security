@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-# This will display the list of processes currently in my system
-ps auxf
