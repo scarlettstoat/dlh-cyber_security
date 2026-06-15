@@ -1,2 +1,2 @@
 #!/bin/bash
-subfinder -d $1 -silent -oI -csv -o $1.txt | awk -F',' '{print $1}'
+subfinder -silent -d $1 -o $1.txt -nW -oI
