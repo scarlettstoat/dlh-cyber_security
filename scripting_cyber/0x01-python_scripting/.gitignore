@@ -1,2 +1,3 @@
 venv/
-_pycache_/1-dns_records.cpython-313.pyc
+__pycache__/1-dns_records.cpython-313.pyc
+
