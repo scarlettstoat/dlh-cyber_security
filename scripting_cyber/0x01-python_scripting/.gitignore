@@ -1,3 +1,4 @@
 venv/
 __pycache__/1-dns_records.cpython-313.pyc
 __pycache__/2-download_page.cpython-313.pyc
+__pycache__/3-http_headers.cpython-313.pyc
