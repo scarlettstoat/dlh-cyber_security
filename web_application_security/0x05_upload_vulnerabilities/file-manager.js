@@ -1,0 +1,7 @@
+function __vite__mapDeps(indexes) {
+  if (!__vite__mapDeps.viteFileDeps) {
+    __vite__mapDeps.viteFileDeps = ["static/routes/file-manager-view-6-5To80c.js","static/index-DYK-Cu5G.js","static/routes/snackbar-provider-BKjL41nT.js","static/routes/ButtonBase-BYeNwEdz.js","static/routes/useEnhancedEffect-CRBrkxaE.js","static/routes/Stack-aV8DaWSP.js","static/routes/Toolbar-DizB3ty0.js","static/routes/Button-CG_aPiPw.js","static/routes/Container-Dmjin0dr.js"]
+  }
+  return indexes.map((i) => __vite__mapDeps.viteFileDeps[i])
+}
+import{r as e,j as t,H as a,C as s}from"../index-DYK-Cu5G.js";import{u as r}from"./snackbar-provider-BKjL41nT.js";import"./ButtonBase-BYeNwEdz.js";import"./useEnhancedEffect-CRBrkxaE.js";const n=e.lazy((()=>s((()=>import("./file-manager-view-6-5To80c.js").then((e=>e.$))),__vite__mapDeps([0,1,2,3,4,5,6,7,8])))),l={list_dir:"/api/list/",upload:document.getElementById("main").getAttribute("data-url")};function o(){const{enqueueSnackbar:s}=r(),[o,i]=e.useState([]),d=()=>fetch(l.list_dir).then((e=>e.json())).then((e=>i(e)));return e.useEffect((()=>{d()}),[]),t.jsxs(t.Fragment,{children:[t.jsx(a,{children:t.jsx("title",{children:" Dashboard: File Manager"})}),t.jsx(n,{handleUpload:(e,t,a)=>{if(l.upload){const r=new FormData;r.append("file",e),fetch(l.upload,{method:"POST",body:r}).then((e=>e.json())).then((e=>{e.error?t(e.error):(s(e.message),d(),a())}))}else t("Can't upload. Currently we don't support uploads.")},allFiles:o,setAllFiles:i,allTypes:["image"]})]})}export{o as default};
