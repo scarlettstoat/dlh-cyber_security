@@ -1,6 +1,6 @@
 Project 1x01 — Know Your Enemy
 
-Hello! The title of this project is quite intense, as it should be. I am still not a fan of taking myself too seriously, so I'm adding this cute note for the tonal shifts :) Also, I've been enjoying the MedDefense project so far because I'm imagining myself doing all this work as part of The Pitt's crew. Okay back to regular programming:
+Hello! The title of this project is quite intense, as it should be. I am still not a fan of taking myself too seriously, so am adding this cute note for a slight tonal shift. :) Also note that I've been enjoying the MedDefense project so far because I'm imagining myself doing all this work as part of The Pitt's crew. Okay, back to our regular programming:
 
 MedDefense Health Systems Threat Landscape Project
 
