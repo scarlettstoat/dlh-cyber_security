@@ -25,21 +25,33 @@ Evidence before attribution — observed behavior may support an actor profile o
 Project 1x00 Baseline Inputs
 
 7-asset_registry.md
+
 8-criticality_assessment.md
+
 12-gap_analysis.md
+
 9-data_map.md
 
 Key inherited findings include:
 
 Critical EHR, medication/infusion, patient-monitoring, identity, network and recovery systems
+
 Restricted patient, imaging, medication, monitoring, credential and backup data
+
 No effective internal segmentation at MedDefense Central
+
 Limited medical-IoT isolation and monitoring
+
 Incomplete MFA and privileged-access controls
+
 Locally concentrated backup infrastructure
+
 Fragmented security monitoring
+
 Legacy and unsupported systems
+
 Incomplete endpoint/device-management coverage
+
 Internet-facing patient services and a weak Westside perimeter
 
 Evidence Sources:
