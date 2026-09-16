@@ -2,6 +2,8 @@
 
 We're back to MedDefense Health Systems. Now that we understand the internal and external threats, and have a clear overview of the security posture, we need to consider the attack vectors. The Emmy-award wining series The Pitt is still helping me a lot with visualisation. Imagining Dr. Robinavitch getting upset over the availability issues help with motivation. In anycase, here's the instructions from the Project.
 
+# Project 1x02 Introduction
+
 A vulnerability scanner does not think. It compares version numbers against databases. It checks configurations against templates. It produces a report with 31 findings, four of which say "Critical" in red, and hands it to you. What it cannot do is tell you which of those 31 findings actually matters in your environment, which ones are noise, which ones the ransomware group you profiled in the last project would actually use, and which one you need to fix before lunch.
 
 That is your job. And it is harder than it sounds.
