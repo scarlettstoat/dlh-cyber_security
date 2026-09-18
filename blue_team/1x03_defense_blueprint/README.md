@@ -1,4 +1,4 @@
-## The Defense Blueprint - Underpinned by Gold
+# The Defense Blueprint - Underpinned by Gold
 
 Now that we know what MedHealth Systems has (Project 0x00), who threatens it (Project 0x01) and where the cracks are (Project 0x02). The question they have been waiting to ask is the one that matters most:
 
@@ -16,7 +16,7 @@ Security professionals who can only find problems are analysts. Security profess
 
 The Security Strategy Document you produce here is the type of deliverable that launches security programs. When a CISO walks into a Board meeting and says, "For $120,000, I can reduce our ransomware exposure by 80% and our regulatory risk from non-compliant to audit-ready," that statement is backed by exactly the kind of work you are about to do.
 
-## Context
+# Context
 Week four at MedDefense Health Systems.
 
 Three reports now sit in a binder on James Chen's desk: the Security Posture Assessment, the Threat Landscape Report and the Vulnerability Assessment Summary. The Board has read all three. Last Friday, Dr. Morales (CEO) sent a one-line email to James:
@@ -37,10 +37,10 @@ He adds: "And Robert Kim, the CFO, will challenge every number. He does not care
 
 Sarah Park leans in: "We also need a framework. We cannot keep making security decisions on intuition. The auditors asked which framework we follow. I said 'none formally.' That was not a good answer."
 
-## Learning Objectives
+# Learning Objectives
 By the end of this project, you are expected to be able to explain to anyone, without the help of Google:
 
-# Security Governance
+## Security Governance
 
 The purpose and structure of NIST CSF 2.0 (six functions, categories, profiles)
 
@@ -52,7 +52,7 @@ What governance structures a security program requires: roles (data owner, contr
 
 How to assess an organization's current maturity against a framework and define a target profile
 
-# Risk Management
+## Risk Management
 
 How to calculate quantitative risk: Asset Value, Exposure Factor, SLE, ARO, ALE
 
@@ -64,7 +64,7 @@ How to build a formal Risk Register with ownership, treatment decisions and key 
 
 How risk appetite and risk tolerance shape security investment decisions
 
-# Mitigation Techniques
+## Mitigation Techniques
 
 How to select and justify specific security controls from CIS Controls for identified risks
 
@@ -74,7 +74,7 @@ How to design a security roadmap with dependencies, quick wins and long-term ini
 
 How to draft an Acceptable Use Policy grounded in identified risks and controls
 
-# Professional Communication
+## Professional Communication
 
 How to defend technical security recommendations to a non-technical CFO using business language
 
