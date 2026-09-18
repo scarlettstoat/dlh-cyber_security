@@ -40,7 +40,7 @@ Sarah Park leans in: "We also need a framework. We cannot keep making security d
 ## Learning Objectives
 By the end of this project, you are expected to be able to explain to anyone, without the help of Google:
 
-Security Governance
+# Security Governance
 
 The purpose and structure of NIST CSF 2.0 (six functions, categories, profiles)
 
@@ -52,7 +52,7 @@ What governance structures a security program requires: roles (data owner, contr
 
 How to assess an organization's current maturity against a framework and define a target profile
 
-Risk Management
+# Risk Management
 
 How to calculate quantitative risk: Asset Value, Exposure Factor, SLE, ARO, ALE
 
@@ -64,7 +64,7 @@ How to build a formal Risk Register with ownership, treatment decisions and key 
 
 How risk appetite and risk tolerance shape security investment decisions
 
-Mitigation Techniques
+# Mitigation Techniques
 
 How to select and justify specific security controls from CIS Controls for identified risks
 
@@ -74,7 +74,7 @@ How to design a security roadmap with dependencies, quick wins and long-term ini
 
 How to draft an Acceptable Use Policy grounded in identified risks and controls
 
-Professional Communication
+# Professional Communication
 
 How to defend technical security recommendations to a non-technical CFO using business language
 
