@@ -6,7 +6,7 @@
 **Project:** `1x05_board_briefing`  
 **Repository path:** `blue_team/1x05_board_briefing/0-advisory_analysis.md`  
 **Advisory:** CISA Emergency Advisory AA26-077A - "Crimson Tide" Ransomware Campaign  
-**Assessment timing:** Emergency review following receipt of the advisory  
+**Assessment timing:** Emergency review following receipt of the CISA advisory 
 
 ---
 
