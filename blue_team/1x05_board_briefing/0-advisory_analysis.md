@@ -1,4 +1,4 @@
-# Task 0 - The Advisory Analysis
+# The Advisory Analysis
 
 # MedDefense Health Systems
 ## Crimson Tide MedDefense Impact Assessment
