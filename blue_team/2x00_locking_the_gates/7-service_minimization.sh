@@ -98,7 +98,7 @@ for service in "${required[@]}"; do
 done
 
 # Count enabled services again.
-after=$(systemctl list-unit-files --type=service --state=enabled --no-legend --no-pager | awk 'END {print NR}')
+after=$(systemctl list-unit-files --type=service --state=enabled --no-legend --no-pager | awk wc -l)
 
 echo "Before: $before | After: $after | Disabled: $disabled"
 
