@@ -1,10 +1,7 @@
 #!/bin/bash
 
-# 11-audit_coverage_test.sh — Prove that audit rules capture security events
-#                               MedDefense cares about.
-#
-# Usage:  sudo ./11-audit_coverage_test.sh
-# ============================================================================
+# 1# Task 11 - Audit Telemetry Coverage Test
+# Test six security events and save the results as JSON.
 
 set -euo pipefail
 
