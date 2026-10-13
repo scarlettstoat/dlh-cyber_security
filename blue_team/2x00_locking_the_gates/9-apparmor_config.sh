@@ -1,151 +1,159 @@
 #!/bin/bash
 
 # Task 9 - AppArmor Enforcer
-# Check AppArmor profiles and protect MedDefense services.
+# Check profiles and protect the MedDefense billing services.
 
 MYSQL="/etc/apparmor.d/usr.sbin.mysqld"
 APACHE="/etc/apparmor.d/usr.sbin.apache2"
 APP="/opt/meddefense/billing-app/app.sh"
 APP_PROFILE="/etc/apparmor.d/opt.meddefense.billing-app.app.sh"
 
-# Check root privileges.
 if [ "$EUID" -ne 0 ]; then
     echo "Please run this script with sudo."
     exit 1
 fi
 
+# Avoid changing security profiles during an SSH session.
+if [ -n "${SSH_CONNECTION:-}" ]; then
+    echo "Run this from the Ubuntu VM console, not SSH."
+    exit 1
+fi
+
 echo "[*] Checking AppArmor status..."
 
-# Make sure AppArmor is available and running.
-if ! command -v aa-status > /dev/null; then
-    echo "AppArmor tools are not installed."
-    exit 1
-fi
-
-if ! aa-status --enabled; then
-    echo "AppArmor module is not loaded."
-    exit 1
-fi
-
-echo "    AppArmor module: loaded"
-
-if systemctl is-active --quiet apparmor; then
-    echo "    AppArmor service: active"
-else
-    echo "    AppArmor service is not active."
-    exit 1
-fi
-
-# Check that the tools needed for enforcement exist.
-for tool in aa-enforce apparmor_parser ss; do
-    if ! command -v "$tool" > /dev/null; then
+# Check that the required tools are installed.
+for tool in aa-status aa-enforce apparmor_parser ss; do
+    if ! command -v "$tool" > /dev/null 2>&1; then
         echo "Missing command: $tool"
         exit 1
     fi
 done
 
-# Show the current AppArmor profiles.
+# Check whether AppArmor is enabled.
+if ! aa-status --enabled > /dev/null 2>&1; then
+    echo "    AppArmor module is not enabled."
+    exit 1
+fi
+
+echo "    AppArmor module: loaded"
+
+if ! systemctl is-active --quiet apparmor; then
+    echo "    AppArmor service is not active."
+    exit 1
+fi
+
+echo "    AppArmor service: active"
+
+# Show the profiles already loaded.
 echo "[*] Current AppArmor profiles:"
 aa-status
 
+problems=0
+
+# Check a profile before enforcing it.
+enforce_profile() {
+    file="$1"
+    program="$2"
+
+    if [ ! -f "$file" ]; then
+        echo "    $program [NO PROFILE]"
+        problems=$((problems + 1))
+        return
+    fi
+
+    # Check the profile without loading it.
+    if ! apparmor_parser -Q "$file" > /dev/null 2>&1; then
+        echo "    $program [INVALID PROFILE]"
+        problems=$((problems + 1))
+        return
+    fi
+
+    if aa-enforce "$file" > /dev/null 2>&1; then
+        echo "    $program [ENFORCED PROFILE]"
+    else
+        echo "    $program [ENFORCEMENT FAILED]"
+        problems=$((problems + 1))
+    fi
+}
+
 echo "[*] Profile enforcement:"
 
-# MySQL already has a profile on the billing server.
-if [ -f "$MYSQL" ]; then
-    if aa-enforce "$MYSQL"; then
-        echo "    /usr/sbin/mysqld [ENFORCED]"
-    else
-        echo "    /usr/sbin/mysqld [FAILED]"
-    fi
-else
-    echo "    /usr/sbin/mysqld [NO PROFILE]"
-fi
+# MySQL already has a profile on billing-srv-01.
+enforce_profile "$MYSQL" "/usr/sbin/mysqld"
 
-# Apache needs its own profile.
-# Do not enforce an untested profile on a running web server.
-if [ -f "$APACHE" ]; then
-    if aa-enforce "$APACHE"; then
-        echo "    /usr/sbin/apache2 [ENFORCED]"
-    else
-        echo "    /usr/sbin/apache2 [FAILED]"
-    fi
-else
-    echo "    /usr/sbin/apache2 [NO PROFILE]"
-    echo "    Apache needs a tested profile before enforcement."
-fi
+# Apache needs a tested profile before enforcement.
+enforce_profile "$APACHE" "/usr/sbin/apache2"
 
-# Create a profile for the MedDefense billing application.
-echo "[*] Configuring MedDefense application profile..."
+# Create a custom profile for the billing application.
+echo "[*] Custom MedDefense profile:"
 
 if [ ! -x "$APP" ]; then
-    echo "    Billing application not found or not executable."
+    echo "    $APP [NOT FOUND OR NOT EXECUTABLE]"
+    problems=$((problems + 1))
 else
-
-    # Do not overwrite an existing profile.
     if [ ! -f "$APP_PROFILE" ]; then
+        temp=$(mktemp)
+        trap 'rm -f "$temp"' EXIT
 
-        cat > "$APP_PROFILE" <<'EOF'
+        cat > "$temp" <<'EOF'
 #include <tunables/global>
 
-# MedDefense billing application
+# MedDefense billing application profile.
 profile /opt/meddefense/billing-app/app.sh {
-
-    # Basic permissions needed by the application.
     #include <abstractions/base>
 
-    # Allow access to the billing application files.
+    # Allow reading billing application files.
     /opt/meddefense/billing-app/** r,
 
-    # Allow the shell script to use Bash.
+    # The application is a Bash script.
     /bin/bash ix,
     /usr/bin/bash ix,
-
-    # Other application and patient directories
-    # are not given access by this profile.
 }
 EOF
 
-        echo "    Custom profile created."
-    else
-        echo "    Custom profile already exists."
-    fi
-
-    # Validate before loading the profile.
-    if apparmor_parser -Q "$APP_PROFILE"; then
-        echo "    Profile syntax: OK"
-
-        if aa-enforce "$APP_PROFILE"; then
-            echo "    $APP [ENFORCED]"
+        # Validate before copying to the real profile directory.
+        if apparmor_parser -Q "$temp" > /dev/null 2>&1; then
+            if install -m 644 "$temp" "$APP_PROFILE"; then
+                echo "    Custom profile created."
+            else
+                echo "    Could not install custom profile."
+                problems=$((problems + 1))
+            fi
         else
-            echo "    $APP [FAILED]"
+            echo "    Custom profile failed syntax check."
+            problems=$((problems + 1))
         fi
     else
-        echo "    Invalid AppArmor profile."
+        echo "    Existing custom profile found."
+    fi
+
+    # Enforce only if the profile exists and passes validation.
+    if [ -f "$APP_PROFILE" ]; then
+        enforce_profile "$APP_PROFILE" "$APP"
     fi
 fi
 
-# Find network-listening processes without AppArmor confinement.
-echo "[*] Unconfined network-exposed processes:"
+# Report processes listening on non-loopback addresses.
+echo "[*] Unconfined network-listening processes:"
 
 unconfined=0
 
-pids=$(ss -tulpn | grep -o 'pid=[0-9]*' | cut -d= -f2 | sort -un)
+pids=$(ss -H -tulpn | awk '$5 !~ /^127\./ && $5 !~ /^\[::1\]:/ && $5 !~ /^::1:/' | grep -o 'pid=[0-9]*' | cut -d= -f2 | sort -un)
 
 for pid in $pids; do
     if [ -r "/proc/$pid/attr/current" ]; then
-
-        status=$(cat "/proc/$pid/attr/current")
+        status=$(cat "/proc/$pid/attr/current" 2>/dev/null)
 
         if [ "$status" = "unconfined" ]; then
-            program=$(readlink -f "/proc/$pid/exe")
+            program=$(readlink -f "/proc/$pid/exe" 2>/dev/null)
 
-            echo "    $program (PID $pid) [UNCONFINED]"
+            echo "    ${program:-unknown} (PID $pid) [UNCONFINED]"
             unconfined=$((unconfined + 1))
         fi
     fi
 done
 
-# Print final AppArmor counts.
+# Count the profiles using AppArmor's numeric output.
 echo "[*] AppArmor summary:"
 
 enforced=$(aa-status --enforced)
@@ -153,7 +161,12 @@ complaining=$(aa-status --complaining)
 
 echo "Profiles in enforce: $enforced"
 echo "Profiles in complain: $complaining"
-echo "Unconfined network processes: $unconfined"
+echo "Unconfined network-listening processes: $unconfined"
 
-echo "AppArmor checks completed."
+# Report incomplete enforcement instead of claiming success.
+if [ "$problems" -gt 0 ]; then
+    echo "Profiles still needing attention: $problems"
+    exit 1
+fi
 
+echo "AppArmor profile checks completed."
