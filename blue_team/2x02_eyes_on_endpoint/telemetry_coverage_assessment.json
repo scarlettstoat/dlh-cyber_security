@@ -1,0 +1,63 @@
+{
+  "report_name": "MedDefense Cross-Platform Telemetry Coverage Assessment",
+  "assessment_version": "1.0",
+  "generated_at_utc": null,
+  "status": "awaiting_input_data",
+  "event_summary": {
+    "total_events": null,
+    "by_platform": {
+      "Windows": null,
+      "Linux": null
+    },
+    "by_source_type": [],
+    "by_event_category": []
+  },
+  "detection_matrix_summary": {
+    "total_simulated_actions": null,
+    "captured_actions": null,
+    "missed_actions": null,
+    "unassessed_actions": null,
+    "partial_detail_actions": null,
+    "multi_source_detections": null,
+    "capture_percentage": null,
+    "by_platform": [],
+    "actions": []
+  },
+  "attack_coverage": {
+    "covered_techniques": [],
+    "partially_covered_techniques": [],
+    "blind_techniques": [],
+    "unassessed_techniques": [],
+    "summary": {
+      "covered": null,
+      "partial": null,
+      "blind": null,
+      "unassessed": null
+    }
+  },
+  "known_gaps": [],
+  "sysmon_coverage_summary": {
+    "checks_total": null,
+    "captured_checks": null,
+    "failed_checks": null,
+    "failed_details": [],
+    "source_summary": {}
+  },
+  "quality_summary": {
+    "windows_score": null,
+    "linux_score": null,
+    "handoff_confidence_rating": "insufficient_data",
+    "final_handoff_confidence_rating": "insufficient_data",
+    "confidence_basis": "Report awaiting real exported events, detection matrices and quality reports; no scores or detections have been assumed."
+  },
+  "input_files": [
+    "telemetry_handoff/windows_events.json",
+    "telemetry_handoff/linux_events.json",
+    "telemetry_handoff/attack_ground_truth.json",
+    "windows_detection_matrix.json",
+    "linux_detection_matrix.json",
+    "windows_telemetry_quality.json",
+    "linux_telemetry_quality.json",
+    "sysmon_coverage_matrix.json"
+  ]
+}
