@@ -29,13 +29,3 @@ Files: `4-patch_execute.sh` and `patch_execution_log.json`.
 **Task 5 – Post-Patch Service Validation**  
 Compares services and listening ports with the original snapshot and checks critical service availability.  
 Files: `5-post_patch_validate.sh` and `post_patch_validation.json`.
-
-## Supporting files
-
-The exercises also use provided data files, including `cve_feed.json`, `service_criticality.json` and `service_probes.json`. These should be kept with the project files when required.
-
-## Important notes
-
-The generated JSON files are intended to hold results from the Ubuntu endpoint. Any empty templates must be replaced with real results before they can be treated as evidence. A successful simulated or local script test does not prove the scripts have passed checks on the target server.
-
-The scripts should be reviewed and checked before use. System changes require an approved maintenance window, a saved baseline and a workable recovery plan. The original pre-patch snapshot must be preserved for comparison and rollback.
