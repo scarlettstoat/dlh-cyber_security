@@ -1,0 +1,9 @@
+{
+  "started_at": null,
+  "finished_at": null,
+  "hostname": null,
+  "plan_source_hash": null,
+  "mode": null,
+  "status": "not_run",
+  "entries": []
+}
