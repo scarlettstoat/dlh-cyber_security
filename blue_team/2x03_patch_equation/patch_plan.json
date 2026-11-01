@@ -1,0 +1,17 @@
+{
+  "generated_at": null,
+  "weights": {
+    "cvss_weight": 0.5,
+    "kev_weight": 2,
+    "criticality_weight": 0.5,
+    "exposure_weight": 0.25
+  },
+  "plan": [],
+  "summary": {
+    "total": null,
+    "emergency": null,
+    "urgent": null,
+    "scheduled": null,
+    "requires_reboot": null
+  }
+}
