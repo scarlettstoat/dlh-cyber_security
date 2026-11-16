@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-11-15T15:28:03Z",
+  "timestamp": "2026-11-15T17:27:35Z",
   "hostname": "kali",
   "interfaces": [
     {
@@ -52,8 +52,8 @@
           "dynamic": true,
           "noprefixroute": true,
           "label": "eth0",
-          "valid_life_time": 85813,
-          "preferred_life_time": 85813
+          "valid_life_time": 83223,
+          "preferred_life_time": 83223
         },
         {
           "family": "inet6",
@@ -62,8 +62,8 @@
           "scope": "global",
           "dynamic": true,
           "noprefixroute": true,
-          "valid_life_time": 86173,
-          "preferred_life_time": 14173
+          "valid_life_time": 86270,
+          "preferred_life_time": 14270
         },
         {
           "family": "inet6",
@@ -77,8 +77,8 @@
       ]
     },
     {
-      "name": "br-702dc767f6da",
-      "mac": "aa:72:2a:91:23:34",
+      "name": "br-84930f374e3a",
+      "mac": "ce:58:08:17:1d:aa",
       "link_state": "UP",
       "flags": [
         "BROADCAST",
@@ -89,17 +89,49 @@
       "addresses": [
         {
           "family": "inet",
-          "local": "10.10.2.254",
+          "local": "10.10.8.254",
           "prefixlen": 24,
-          "broadcast": "10.10.2.255",
+          "broadcast": "10.10.8.255",
           "scope": "global",
-          "label": "br-702dc767f6da",
+          "label": "br-84930f374e3a",
           "valid_life_time": 4294967295,
           "preferred_life_time": 4294967295
         },
         {
           "family": "inet6",
-          "local": "fe80::a872:2aff:fe91:2334",
+          "local": "fe80::cc58:8ff:fe17:1daa",
+          "prefixlen": 64,
+          "scope": "link",
+          "protocol": "kernel_ll",
+          "valid_life_time": 4294967295,
+          "preferred_life_time": 4294967295
+        }
+      ]
+    },
+    {
+      "name": "br-917de7d3530f",
+      "mac": "06:d0:04:ed:fc:5d",
+      "link_state": "UP",
+      "flags": [
+        "BROADCAST",
+        "MULTICAST",
+        "UP",
+        "LOWER_UP"
+      ],
+      "addresses": [
+        {
+          "family": "inet",
+          "local": "10.10.10.254",
+          "prefixlen": 24,
+          "broadcast": "10.10.10.255",
+          "scope": "global",
+          "label": "br-917de7d3530f",
+          "valid_life_time": 4294967295,
+          "preferred_life_time": 4294967295
+        },
+        {
+          "family": "inet6",
+          "local": "fe80::4d0:4ff:feed:fc5d",
           "prefixlen": 64,
           "scope": "link",
           "protocol": "kernel_ll",
@@ -110,7 +142,7 @@
     },
     {
       "name": "docker0",
-      "mac": "7e:b9:25:15:54:5d",
+      "mac": "c2:3c:c4:53:b1:29",
       "link_state": "DOWN",
       "flags": [
         "NO-CARRIER",
@@ -132,72 +164,8 @@
       ]
     },
     {
-      "name": "br-d4fb0a79a343",
-      "mac": "82:b6:aa:12:e6:7c",
-      "link_state": "UP",
-      "flags": [
-        "BROADCAST",
-        "MULTICAST",
-        "UP",
-        "LOWER_UP"
-      ],
-      "addresses": [
-        {
-          "family": "inet",
-          "local": "10.10.4.254",
-          "prefixlen": 24,
-          "broadcast": "10.10.4.255",
-          "scope": "global",
-          "label": "br-d4fb0a79a343",
-          "valid_life_time": 4294967295,
-          "preferred_life_time": 4294967295
-        },
-        {
-          "family": "inet6",
-          "local": "fe80::80b6:aaff:fe12:e67c",
-          "prefixlen": 64,
-          "scope": "link",
-          "protocol": "kernel_ll",
-          "valid_life_time": 4294967295,
-          "preferred_life_time": 4294967295
-        }
-      ]
-    },
-    {
-      "name": "br-fdd8ce1b4690",
-      "mac": "22:f9:8e:a1:4b:d9",
-      "link_state": "UP",
-      "flags": [
-        "BROADCAST",
-        "MULTICAST",
-        "UP",
-        "LOWER_UP"
-      ],
-      "addresses": [
-        {
-          "family": "inet",
-          "local": "10.10.100.254",
-          "prefixlen": 24,
-          "broadcast": "10.10.100.255",
-          "scope": "global",
-          "label": "br-fdd8ce1b4690",
-          "valid_life_time": 4294967295,
-          "preferred_life_time": 4294967295
-        },
-        {
-          "family": "inet6",
-          "local": "fe80::20f9:8eff:fea1:4bd9",
-          "prefixlen": 64,
-          "scope": "link",
-          "protocol": "kernel_ll",
-          "valid_life_time": 4294967295,
-          "preferred_life_time": 4294967295
-        }
-      ]
-    },
-    {
       "name": "br-1630e4b3a810",
-      "mac": "6e:23:33:7d:b5:d0",
+      "mac": "8a:bd:7f:69:96:20",
       "link_state": "UP",
       "flags": [
         "BROADCAST",
@@ -218,39 +186,7 @@
         },
         {
           "family": "inet6",
-          "local": "fe80::6c23:33ff:fe7d:b5d0",
-          "prefixlen": 64,
-          "scope": "link",
-          "protocol": "kernel_ll",
-          "valid_life_time": 4294967295,
-          "preferred_life_time": 4294967295
-        }
-      ]
-    },
-    {
-      "name": "br-3c7faecb6ac6",
-      "mac": "fe:38:77:32:05:e8",
-      "link_state": "UP",
-      "flags": [
-        "BROADCAST",
-        "MULTICAST",
-        "UP",
-        "LOWER_UP"
-      ],
-      "addresses": [
-        {
-          "family": "inet",
-          "local": "10.10.9.254",
-          "prefixlen": 24,
-          "broadcast": "10.10.9.255",
-          "scope": "global",
-          "label": "br-3c7faecb6ac6",
-          "valid_life_time": 4294967295,
-          "preferred_life_time": 4294967295
-        },
-        {
-          "family": "inet6",
-          "local": "fe80::fc38:77ff:fe32:5e8",
+          "local": "fe80::88bd:7fff:fe69:9620",
           "prefixlen": 64,
           "scope": "link",
           "protocol": "kernel_ll",
@@ -261,7 +197,7 @@
     },
     {
       "name": "br-41727b2cc1c8",
-      "mac": "12:63:6b:a5:93:11",
+      "mac": "d6:b9:f0:e5:4d:17",
       "link_state": "UP",
       "flags": [
         "BROADCAST",
@@ -282,71 +218,7 @@
         },
         {
           "family": "inet6",
-          "local": "fe80::1063:6bff:fea5:9311",
-          "prefixlen": 64,
-          "scope": "link",
-          "protocol": "kernel_ll",
-          "valid_life_time": 4294967295,
-          "preferred_life_time": 4294967295
-        }
-      ]
-    },
-    {
-      "name": "br-526060eb673d",
-      "mac": "1e:6e:ad:76:ca:81",
-      "link_state": "UP",
-      "flags": [
-        "BROADCAST",
-        "MULTICAST",
-        "UP",
-        "LOWER_UP"
-      ],
-      "addresses": [
-        {
-          "family": "inet",
-          "local": "10.10.5.254",
-          "prefixlen": 24,
-          "broadcast": "10.10.5.255",
-          "scope": "global",
-          "label": "br-526060eb673d",
-          "valid_life_time": 4294967295,
-          "preferred_life_time": 4294967295
-        },
-        {
-          "family": "inet6",
-          "local": "fe80::1c6e:adff:fe76:ca81",
-          "prefixlen": 64,
-          "scope": "link",
-          "protocol": "kernel_ll",
-          "valid_life_time": 4294967295,
-          "preferred_life_time": 4294967295
-        }
-      ]
-    },
-    {
-      "name": "br-78921e818fd2",
-      "mac": "5a:a3:1a:7d:47:95",
-      "link_state": "UP",
-      "flags": [
-        "BROADCAST",
-        "MULTICAST",
-        "UP",
-        "LOWER_UP"
-      ],
-      "addresses": [
-        {
-          "family": "inet",
-          "local": "10.10.6.254",
-          "prefixlen": 24,
-          "broadcast": "10.10.6.255",
-          "scope": "global",
-          "label": "br-78921e818fd2",
-          "valid_life_time": 4294967295,
-          "preferred_life_time": 4294967295
-        },
-        {
-          "family": "inet6",
-          "local": "fe80::58a3:1aff:fe7d:4795",
+          "local": "fe80::d4b9:f0ff:fee5:4d17",
           "prefixlen": 64,
           "scope": "link",
           "protocol": "kernel_ll",
@@ -357,7 +229,7 @@
     },
     {
       "name": "br-82c5c263be15",
-      "mac": "b2:5e:6f:08:09:95",
+      "mac": "12:14:51:d7:58:47",
       "link_state": "UP",
       "flags": [
         "BROADCAST",
@@ -378,7 +250,7 @@
         },
         {
           "family": "inet6",
-          "local": "fe80::b05e:6fff:fe08:995",
+          "local": "fe80::1014:51ff:fed7:5847",
           "prefixlen": 64,
           "scope": "link",
           "protocol": "kernel_ll",
@@ -388,8 +260,8 @@
       ]
     },
     {
-      "name": "br-84930f374e3a",
-      "mac": "ca:13:11:69:50:a4",
+      "name": "br-d4fb0a79a343",
+      "mac": "66:98:cc:69:00:a1",
       "link_state": "UP",
       "flags": [
         "BROADCAST",
@@ -400,17 +272,17 @@
       "addresses": [
         {
           "family": "inet",
-          "local": "10.10.8.254",
+          "local": "10.10.4.254",
           "prefixlen": 24,
-          "broadcast": "10.10.8.255",
+          "broadcast": "10.10.4.255",
           "scope": "global",
-          "label": "br-84930f374e3a",
+          "label": "br-d4fb0a79a343",
           "valid_life_time": 4294967295,
           "preferred_life_time": 4294967295
         },
         {
           "family": "inet6",
-          "local": "fe80::c813:11ff:fe69:50a4",
+          "local": "fe80::6498:ccff:fe69:a1",
           "prefixlen": 64,
           "scope": "link",
           "protocol": "kernel_ll",
@@ -420,8 +292,8 @@
       ]
     },
     {
-      "name": "br-917de7d3530f",
-      "mac": "f2:0f:83:4a:3f:aa",
+      "name": "br-fdd8ce1b4690",
+      "mac": "e6:52:50:26:b8:c8",
       "link_state": "UP",
       "flags": [
         "BROADCAST",
@@ -432,17 +304,49 @@
       "addresses": [
         {
           "family": "inet",
-          "local": "10.10.10.254",
+          "local": "10.10.100.254",
           "prefixlen": 24,
-          "broadcast": "10.10.10.255",
+          "broadcast": "10.10.100.255",
           "scope": "global",
-          "label": "br-917de7d3530f",
+          "label": "br-fdd8ce1b4690",
           "valid_life_time": 4294967295,
           "preferred_life_time": 4294967295
         },
         {
           "family": "inet6",
-          "local": "fe80::f00f:83ff:fe4a:3faa",
+          "local": "fe80::e452:50ff:fe26:b8c8",
+          "prefixlen": 64,
+          "scope": "link",
+          "protocol": "kernel_ll",
+          "valid_life_time": 4294967295,
+          "preferred_life_time": 4294967295
+        }
+      ]
+    },
+    {
+      "name": "br-3c7faecb6ac6",
+      "mac": "aa:de:a3:0e:6b:f1",
+      "link_state": "UP",
+      "flags": [
+        "BROADCAST",
+        "MULTICAST",
+        "UP",
+        "LOWER_UP"
+      ],
+      "addresses": [
+        {
+          "family": "inet",
+          "local": "10.10.9.254",
+          "prefixlen": 24,
+          "broadcast": "10.10.9.255",
+          "scope": "global",
+          "label": "br-3c7faecb6ac6",
+          "valid_life_time": 4294967295,
+          "preferred_life_time": 4294967295
+        },
+        {
+          "family": "inet6",
+          "local": "fe80::a8de:a3ff:fe0e:6bf1",
           "prefixlen": 64,
           "scope": "link",
           "protocol": "kernel_ll",
@@ -453,7 +357,7 @@
     },
     {
       "name": "br-3e2f0aa68620",
-      "mac": "fe:1f:a0:bd:83:14",
+      "mac": "ee:9f:c9:f4:90:06",
       "link_state": "UP",
       "flags": [
         "BROADCAST",
@@ -474,7 +378,7 @@
         },
         {
           "family": "inet6",
-          "local": "fe80::fc1f:a0ff:febd:8314",
+          "local": "fe80::ec9f:c9ff:fef4:9006",
           "prefixlen": 64,
           "scope": "link",
           "protocol": "kernel_ll",
@@ -484,8 +388,104 @@
       ]
     },
     {
-      "name": "veth860488b",
-      "mac": "72:d3:73:6e:23:06",
+      "name": "br-526060eb673d",
+      "mac": "f2:3f:55:51:14:5b",
+      "link_state": "UP",
+      "flags": [
+        "BROADCAST",
+        "MULTICAST",
+        "UP",
+        "LOWER_UP"
+      ],
+      "addresses": [
+        {
+          "family": "inet",
+          "local": "10.10.5.254",
+          "prefixlen": 24,
+          "broadcast": "10.10.5.255",
+          "scope": "global",
+          "label": "br-526060eb673d",
+          "valid_life_time": 4294967295,
+          "preferred_life_time": 4294967295
+        },
+        {
+          "family": "inet6",
+          "local": "fe80::f03f:55ff:fe51:145b",
+          "prefixlen": 64,
+          "scope": "link",
+          "protocol": "kernel_ll",
+          "valid_life_time": 4294967295,
+          "preferred_life_time": 4294967295
+        }
+      ]
+    },
+    {
+      "name": "br-702dc767f6da",
+      "mac": "2a:93:62:3b:3a:c1",
+      "link_state": "UP",
+      "flags": [
+        "BROADCAST",
+        "MULTICAST",
+        "UP",
+        "LOWER_UP"
+      ],
+      "addresses": [
+        {
+          "family": "inet",
+          "local": "10.10.2.254",
+          "prefixlen": 24,
+          "broadcast": "10.10.2.255",
+          "scope": "global",
+          "label": "br-702dc767f6da",
+          "valid_life_time": 4294967295,
+          "preferred_life_time": 4294967295
+        },
+        {
+          "family": "inet6",
+          "local": "fe80::2893:62ff:fe3b:3ac1",
+          "prefixlen": 64,
+          "scope": "link",
+          "protocol": "kernel_ll",
+          "valid_life_time": 4294967295,
+          "preferred_life_time": 4294967295
+        }
+      ]
+    },
+    {
+      "name": "br-78921e818fd2",
+      "mac": "a2:1c:2a:b4:af:18",
+      "link_state": "UP",
+      "flags": [
+        "BROADCAST",
+        "MULTICAST",
+        "UP",
+        "LOWER_UP"
+      ],
+      "addresses": [
+        {
+          "family": "inet",
+          "local": "10.10.6.254",
+          "prefixlen": 24,
+          "broadcast": "10.10.6.255",
+          "scope": "global",
+          "label": "br-78921e818fd2",
+          "valid_life_time": 4294967295,
+          "preferred_life_time": 4294967295
+        },
+        {
+          "family": "inet6",
+          "local": "fe80::a01c:2aff:feb4:af18",
+          "prefixlen": 64,
+          "scope": "link",
+          "protocol": "kernel_ll",
+          "valid_life_time": 4294967295,
+          "preferred_life_time": 4294967295
+        }
+      ]
+    },
+    {
+      "name": "vethed20115",
+      "mac": "4e:7b:d8:af:be:f0",
       "link_state": "UP",
       "flags": [
         "BROADCAST",
@@ -496,7 +496,7 @@
       "addresses": [
         {
           "family": "inet6",
-          "local": "fe80::70d3:73ff:fe6e:2306",
+          "local": "fe80::4c7b:d8ff:feaf:bef0",
           "prefixlen": 64,
           "scope": "link",
           "protocol": "kernel_ll",
@@ -506,8 +506,8 @@
       ]
     },
     {
-      "name": "vethf1b3b0d",
-      "mac": "02:92:ad:c0:63:7d",
+      "name": "veth65ea88c",
+      "mac": "aa:4c:e5:a6:07:62",
       "link_state": "UP",
       "flags": [
         "BROADCAST",
@@ -518,7 +518,7 @@
       "addresses": [
         {
           "family": "inet6",
-          "local": "fe80::92:adff:fec0:637d",
+          "local": "fe80::a84c:e5ff:fea6:762",
           "prefixlen": 64,
           "scope": "link",
           "protocol": "kernel_ll",
@@ -528,8 +528,8 @@
       ]
     },
     {
-      "name": "veth6de2447",
-      "mac": "42:52:65:23:a8:37",
+      "name": "vethb26aa5f",
+      "mac": "6e:af:31:b5:c3:84",
       "link_state": "UP",
       "flags": [
         "BROADCAST",
@@ -540,7 +540,7 @@
       "addresses": [
         {
           "family": "inet6",
-          "local": "fe80::4052:65ff:fe23:a837",
+          "local": "fe80::6caf:31ff:feb5:c384",
           "prefixlen": 64,
           "scope": "link",
           "protocol": "kernel_ll",
@@ -550,8 +550,8 @@
       ]
     },
     {
-      "name": "veth0df5248",
-      "mac": "92:17:67:45:fa:95",
+      "name": "veth694e8ef",
+      "mac": "5a:0e:68:e1:30:71",
       "link_state": "UP",
       "flags": [
         "BROADCAST",
@@ -562,7 +562,7 @@
       "addresses": [
         {
           "family": "inet6",
-          "local": "fe80::9017:67ff:fe45:fa95",
+          "local": "fe80::580e:68ff:fee1:3071",
           "prefixlen": 64,
           "scope": "link",
           "protocol": "kernel_ll",
@@ -572,8 +572,8 @@
       ]
     },
     {
-      "name": "veth2f371da",
-      "mac": "9a:9f:b4:aa:88:4b",
+      "name": "veth0954495",
+      "mac": "ae:83:7a:41:03:4f",
       "link_state": "UP",
       "flags": [
         "BROADCAST",
@@ -584,7 +584,7 @@
       "addresses": [
         {
           "family": "inet6",
-          "local": "fe80::989f:b4ff:feaa:884b",
+          "local": "fe80::ac83:7aff:fe41:34f",
           "prefixlen": 64,
           "scope": "link",
           "protocol": "kernel_ll",
@@ -594,8 +594,8 @@
       ]
     },
     {
-      "name": "vethe720e12",
-      "mac": "e6:24:2b:63:19:c5",
+      "name": "veth6b3064b",
+      "mac": "7e:58:1d:32:00:cb",
       "link_state": "UP",
       "flags": [
         "BROADCAST",
@@ -606,7 +606,7 @@
       "addresses": [
         {
           "family": "inet6",
-          "local": "fe80::e424:2bff:fe63:19c5",
+          "local": "fe80::7c58:1dff:fe32:cb",
           "prefixlen": 64,
           "scope": "link",
           "protocol": "kernel_ll",
@@ -616,8 +616,8 @@
       ]
     },
     {
-      "name": "veth6b684d0",
-      "mac": "12:81:bf:73:44:56",
+      "name": "veth064a413",
+      "mac": "0e:77:2c:88:11:4d",
       "link_state": "UP",
       "flags": [
         "BROADCAST",
@@ -628,7 +628,7 @@
       "addresses": [
         {
           "family": "inet6",
-          "local": "fe80::1081:bfff:fe73:4456",
+          "local": "fe80::c77:2cff:fe88:114d",
           "prefixlen": 64,
           "scope": "link",
           "protocol": "kernel_ll",
@@ -638,8 +638,8 @@
       ]
     },
     {
-      "name": "veth469f433",
-      "mac": "da:41:01:e1:5f:b5",
+      "name": "vethd38439d",
+      "mac": "0a:36:15:74:29:57",
       "link_state": "UP",
       "flags": [
         "BROADCAST",
@@ -650,7 +650,7 @@
       "addresses": [
         {
           "family": "inet6",
-          "local": "fe80::d841:1ff:fee1:5fb5",
+          "local": "fe80::836:15ff:fe74:2957",
           "prefixlen": 64,
           "scope": "link",
           "protocol": "kernel_ll",
@@ -660,8 +660,8 @@
       ]
     },
     {
-      "name": "veth879dc74",
-      "mac": "ca:4e:ef:69:a1:c0",
+      "name": "vethd4a591c",
+      "mac": "a6:99:e6:82:60:4f",
       "link_state": "UP",
       "flags": [
         "BROADCAST",
@@ -672,7 +672,7 @@
       "addresses": [
         {
           "family": "inet6",
-          "local": "fe80::c84e:efff:fe69:a1c0",
+          "local": "fe80::a499:e6ff:fe82:604f",
           "prefixlen": 64,
           "scope": "link",
           "protocol": "kernel_ll",
@@ -682,8 +682,8 @@
       ]
     },
     {
-      "name": "veth9bb6df5",
-      "mac": "ee:7c:7b:71:4a:1d",
+      "name": "veth79ce7b1",
+      "mac": "b2:8e:d1:72:02:70",
       "link_state": "UP",
       "flags": [
         "BROADCAST",
@@ -694,7 +694,7 @@
       "addresses": [
         {
           "family": "inet6",
-          "local": "fe80::ec7c:7bff:fe71:4a1d",
+          "local": "fe80::b08e:d1ff:fe72:270",
           "prefixlen": 64,
           "scope": "link",
           "protocol": "kernel_ll",
@@ -704,8 +704,8 @@
       ]
     },
     {
-      "name": "vethe7e0bab",
-      "mac": "6e:c4:dd:7c:ff:de",
+      "name": "veth3edff48",
+      "mac": "1a:8a:b6:a7:9f:78",
       "link_state": "UP",
       "flags": [
         "BROADCAST",
@@ -716,7 +716,7 @@
       "addresses": [
         {
           "family": "inet6",
-          "local": "fe80::6cc4:ddff:fe7c:ffde",
+          "local": "fe80::188a:b6ff:fea7:9f78",
           "prefixlen": 64,
           "scope": "link",
           "protocol": "kernel_ll",
@@ -726,8 +726,8 @@
       ]
     },
     {
-      "name": "vethec8deef",
-      "mac": "a6:7e:8e:a1:9d:1c",
+      "name": "veth1a11df5",
+      "mac": "8e:02:44:cc:1c:01",
       "link_state": "UP",
       "flags": [
         "BROADCAST",
@@ -738,7 +738,7 @@
       "addresses": [
         {
           "family": "inet6",
-          "local": "fe80::a47e:8eff:fea1:9d1c",
+          "local": "fe80::8c02:44ff:fecc:1c01",
           "prefixlen": 64,
           "scope": "link",
           "protocol": "kernel_ll",
@@ -748,8 +748,8 @@
       ]
     },
     {
-      "name": "veth17c7bbc",
-      "mac": "62:06:22:d5:9b:1a",
+      "name": "vetha313296",
+      "mac": "56:13:f4:8b:1e:8d",
       "link_state": "UP",
       "flags": [
         "BROADCAST",
@@ -760,7 +760,7 @@
       "addresses": [
         {
           "family": "inet6",
-          "local": "fe80::6006:22ff:fed5:9b1a",
+          "local": "fe80::5413:f4ff:fe8b:1e8d",
           "prefixlen": 64,
           "scope": "link",
           "protocol": "kernel_ll",
@@ -770,8 +770,8 @@
       ]
     },
     {
-      "name": "veth8f16b43",
-      "mac": "72:93:53:d7:11:f2",
+      "name": "vethf9d1a8e",
+      "mac": "fa:08:0d:31:a7:12",
       "link_state": "UP",
       "flags": [
         "BROADCAST",
@@ -782,7 +782,7 @@
       "addresses": [
         {
           "family": "inet6",
-          "local": "fe80::7093:53ff:fed7:11f2",
+          "local": "fe80::f808:dff:fe31:a712",
           "prefixlen": 64,
           "scope": "link",
           "protocol": "kernel_ll",
@@ -792,8 +792,8 @@
       ]
     },
     {
-      "name": "vethbd71646",
-      "mac": "86:02:63:e9:48:fc",
+      "name": "vethfe7943c",
+      "mac": "32:e0:a2:d1:de:ac",
       "link_state": "UP",
       "flags": [
         "BROADCAST",
@@ -804,7 +804,7 @@
       "addresses": [
         {
           "family": "inet6",
-          "local": "fe80::8402:63ff:fee9:48fc",
+          "local": "fe80::30e0:a2ff:fed1:deac",
           "prefixlen": 64,
           "scope": "link",
           "protocol": "kernel_ll",
@@ -814,8 +814,8 @@
       ]
     },
     {
-      "name": "veth0943af7",
-      "mac": "82:af:ad:eb:3c:d6",
+      "name": "veth7b2f789",
+      "mac": "72:8c:5a:8a:cf:61",
       "link_state": "UP",
       "flags": [
         "BROADCAST",
@@ -826,7 +826,7 @@
       "addresses": [
         {
           "family": "inet6",
-          "local": "fe80::80af:adff:feeb:3cd6",
+          "local": "fe80::708c:5aff:fe8a:cf61",
           "prefixlen": 64,
           "scope": "link",
           "protocol": "kernel_ll",
@@ -836,8 +836,8 @@
       ]
     },
     {
-      "name": "veth2622612",
-      "mac": "32:02:51:c8:61:7f",
+      "name": "veth9514941",
+      "mac": "a6:cc:01:32:a1:5e",
       "link_state": "UP",
       "flags": [
         "BROADCAST",
@@ -848,7 +848,7 @@
       "addresses": [
         {
           "family": "inet6",
-          "local": "fe80::3002:51ff:fec8:617f",
+          "local": "fe80::a4cc:1ff:fe32:a15e",
           "prefixlen": 64,
           "scope": "link",
           "protocol": "kernel_ll",
@@ -858,8 +858,8 @@
       ]
     },
     {
-      "name": "veth57ecc86",
-      "mac": "f2:5f:ad:e2:96:d0",
+      "name": "veth398d039",
+      "mac": "46:74:7f:c8:c6:a7",
       "link_state": "UP",
       "flags": [
         "BROADCAST",
@@ -870,7 +870,7 @@
       "addresses": [
         {
           "family": "inet6",
-          "local": "fe80::f05f:adff:fee2:96d0",
+          "local": "fe80::4474:7fff:fec8:c6a7",
           "prefixlen": 64,
           "scope": "link",
           "protocol": "kernel_ll",
@@ -880,8 +880,8 @@
       ]
     },
     {
-      "name": "veth430016d",
-      "mac": "26:31:bb:d5:b8:7a",
+      "name": "vetha68d530",
+      "mac": "b2:10:34:eb:c3:e4",
       "link_state": "UP",
       "flags": [
         "BROADCAST",
@@ -892,7 +892,7 @@
       "addresses": [
         {
           "family": "inet6",
-          "local": "fe80::2431:bbff:fed5:b87a",
+          "local": "fe80::b010:34ff:feeb:c3e4",
           "prefixlen": 64,
           "scope": "link",
           "protocol": "kernel_ll",
@@ -902,8 +902,8 @@
       ]
     },
     {
-      "name": "veth2ab8932",
-      "mac": "1e:e5:f4:7d:4b:2d",
+      "name": "veth8d63a1c",
+      "mac": "0e:24:e3:0f:8e:7d",
       "link_state": "UP",
       "flags": [
         "BROADCAST",
@@ -914,7 +914,7 @@
       "addresses": [
         {
           "family": "inet6",
-          "local": "fe80::1ce5:f4ff:fe7d:4b2d",
+          "local": "fe80::c24:e3ff:fe0f:8e7d",
           "prefixlen": 64,
           "scope": "link",
           "protocol": "kernel_ll",
@@ -924,8 +924,8 @@
       ]
     },
     {
-      "name": "veth14b51d5",
-      "mac": "42:1a:73:2c:4c:85",
+      "name": "vethd652be1",
+      "mac": "52:58:9f:85:f7:58",
       "link_state": "UP",
       "flags": [
         "BROADCAST",
@@ -936,7 +936,7 @@
       "addresses": [
         {
           "family": "inet6",
-          "local": "fe80::401a:73ff:fe2c:4c85",
+          "local": "fe80::5058:9fff:fe85:f758",
           "prefixlen": 64,
           "scope": "link",
           "protocol": "kernel_ll",
@@ -946,8 +946,8 @@
       ]
     },
     {
-      "name": "vethf6e7019",
-      "mac": "ba:57:09:7e:ba:a2",
+      "name": "vethdf75928",
+      "mac": "7e:7f:90:c9:d4:d6",
       "link_state": "UP",
       "flags": [
         "BROADCAST",
@@ -958,7 +958,7 @@
       "addresses": [
         {
           "family": "inet6",
-          "local": "fe80::b857:9ff:fe7e:baa2",
+          "local": "fe80::7c7f:90ff:fec9:d4d6",
           "prefixlen": 64,
           "scope": "link",
           "protocol": "kernel_ll",
@@ -968,8 +968,8 @@
       ]
     },
     {
-      "name": "vethe602415",
-      "mac": "22:41:cf:49:75:74",
+      "name": "veth0510d30",
+      "mac": "66:42:e9:c2:23:40",
       "link_state": "UP",
       "flags": [
         "BROADCAST",
@@ -980,7 +980,7 @@
       "addresses": [
         {
           "family": "inet6",
-          "local": "fe80::2041:cfff:fe49:7574",
+          "local": "fe80::6442:e9ff:fec2:2340",
           "prefixlen": 64,
           "scope": "link",
           "protocol": "kernel_ll",
@@ -990,8 +990,8 @@
       ]
     },
     {
-      "name": "vethf8e1828",
-      "mac": "a6:9c:a0:05:07:60",
+      "name": "veth86928a9",
+      "mac": "b6:db:22:8c:3c:bf",
       "link_state": "UP",
       "flags": [
         "BROADCAST",
@@ -1002,7 +1002,7 @@
       "addresses": [
         {
           "family": "inet6",
-          "local": "fe80::a49c:a0ff:fe05:760",
+          "local": "fe80::b4db:22ff:fe8c:3cbf",
           "prefixlen": 64,
           "scope": "link",
           "protocol": "kernel_ll",
@@ -1012,8 +1012,8 @@
       ]
     },
     {
-      "name": "veth4a3df2f",
-      "mac": "3a:1d:6e:e8:78:34",
+      "name": "veth1d15479",
+      "mac": "6e:30:dc:a2:7d:89",
       "link_state": "UP",
       "flags": [
         "BROADCAST",
@@ -1024,7 +1024,7 @@
       "addresses": [
         {
           "family": "inet6",
-          "local": "fe80::381d:6eff:fee8:7834",
+          "local": "fe80::6c30:dcff:fea2:7d89",
           "prefixlen": 64,
           "scope": "link",
           "protocol": "kernel_ll",
@@ -1185,7 +1185,7 @@
     },
     {
       "dst": "fe80::/64",
-      "dev": "veth2f371da",
+      "dev": "vethed20115",
       "protocol": "kernel",
       "metric": 256,
       "flags": [],
@@ -1203,97 +1203,7 @@
     },
     {
       "dst": "fe80::/64",
-      "dev": "vethf1b3b0d",
-      "protocol": "kernel",
-      "metric": 256,
-      "flags": [],
-      "pref": "medium",
-      "family": "inet6"
-    },
-    {
-      "dst": "fe80::/64",
-      "dev": "br-3e2f0aa68620",
-      "protocol": "kernel",
-      "metric": 256,
-      "flags": [],
-      "pref": "medium",
-      "family": "inet6"
-    },
-    {
-      "dst": "fe80::/64",
-      "dev": "veth860488b",
-      "protocol": "kernel",
-      "metric": 256,
-      "flags": [],
-      "pref": "medium",
-      "family": "inet6"
-    },
-    {
-      "dst": "fe80::/64",
-      "dev": "br-78921e818fd2",
-      "protocol": "kernel",
-      "metric": 256,
-      "flags": [],
-      "pref": "medium",
-      "family": "inet6"
-    },
-    {
-      "dst": "fe80::/64",
-      "dev": "veth0df5248",
-      "protocol": "kernel",
-      "metric": 256,
-      "flags": [],
-      "pref": "medium",
-      "family": "inet6"
-    },
-    {
-      "dst": "fe80::/64",
-      "dev": "br-917de7d3530f",
-      "protocol": "kernel",
-      "metric": 256,
-      "flags": [],
-      "pref": "medium",
-      "family": "inet6"
-    },
-    {
-      "dst": "fe80::/64",
-      "dev": "veth6de2447",
-      "protocol": "kernel",
-      "metric": 256,
-      "flags": [],
-      "pref": "medium",
-      "family": "inet6"
-    },
-    {
-      "dst": "fe80::/64",
-      "dev": "br-526060eb673d",
-      "protocol": "kernel",
-      "metric": 256,
-      "flags": [],
-      "pref": "medium",
-      "family": "inet6"
-    },
-    {
-      "dst": "fe80::/64",
-      "dev": "vethe720e12",
-      "protocol": "kernel",
-      "metric": 256,
-      "flags": [],
-      "pref": "medium",
-      "family": "inet6"
-    },
-    {
-      "dst": "fe80::/64",
-      "dev": "br-1630e4b3a810",
-      "protocol": "kernel",
-      "metric": 256,
-      "flags": [],
-      "pref": "medium",
-      "family": "inet6"
-    },
-    {
-      "dst": "fe80::/64",
-      "dev": "veth6b684d0",
+      "dev": "veth65ea88c",
       "protocol": "kernel",
       "metric": 256,
       "flags": [],
@@ -1311,34 +1221,7 @@
     },
     {
       "dst": "fe80::/64",
-      "dev": "veth469f433",
-      "protocol": "kernel",
-      "metric": 256,
-      "flags": [],
-      "pref": "medium",
-      "family": "inet6"
-    },
-    {
-      "dst": "fe80::/64",
-      "dev": "br-3c7faecb6ac6",
-      "protocol": "kernel",
-      "metric": 256,
-      "flags": [],
-      "pref": "medium",
-      "family": "inet6"
-    },
-    {
-      "dst": "fe80::/64",
-      "dev": "veth879dc74",
-      "protocol": "kernel",
-      "metric": 256,
-      "flags": [],
-      "pref": "medium",
-      "family": "inet6"
-    },
-    {
-      "dst": "fe80::/64",
-      "dev": "veth9bb6df5",
+      "dev": "vethb26aa5f",
       "protocol": "kernel",
       "metric": 256,
       "flags": [],
@@ -1356,7 +1239,7 @@
     },
     {
       "dst": "fe80::/64",
-      "dev": "vethe7e0bab",
+      "dev": "veth694e8ef",
       "protocol": "kernel",
       "metric": 256,
       "flags": [],
@@ -1365,7 +1248,7 @@
     },
     {
       "dst": "fe80::/64",
-      "dev": "br-82c5c263be15",
+      "dev": "br-3c7faecb6ac6",
       "protocol": "kernel",
       "metric": 256,
       "flags": [],
@@ -1374,7 +1257,7 @@
     },
     {
       "dst": "fe80::/64",
-      "dev": "vethec8deef",
+      "dev": "veth0954495",
       "protocol": "kernel",
       "metric": 256,
       "flags": [],
@@ -1383,7 +1266,7 @@
     },
     {
       "dst": "fe80::/64",
-      "dev": "veth17c7bbc",
+      "dev": "br-1630e4b3a810",
       "protocol": "kernel",
       "metric": 256,
       "flags": [],
@@ -1392,7 +1275,7 @@
     },
     {
       "dst": "fe80::/64",
-      "dev": "veth8f16b43",
+      "dev": "veth064a413",
       "protocol": "kernel",
       "metric": 256,
       "flags": [],
@@ -1401,7 +1284,7 @@
     },
     {
       "dst": "fe80::/64",
-      "dev": "vethbd71646",
+      "dev": "br-78921e818fd2",
       "protocol": "kernel",
       "metric": 256,
       "flags": [],
@@ -1410,7 +1293,7 @@
     },
     {
       "dst": "fe80::/64",
-      "dev": "br-702dc767f6da",
+      "dev": "veth6b3064b",
       "protocol": "kernel",
       "metric": 256,
       "flags": [],
@@ -1419,52 +1302,7 @@
     },
     {
       "dst": "fe80::/64",
-      "dev": "veth2ab8932",
-      "protocol": "kernel",
-      "metric": 256,
-      "flags": [],
-      "pref": "medium",
-      "family": "inet6"
-    },
-    {
-      "dst": "fe80::/64",
-      "dev": "veth430016d",
-      "protocol": "kernel",
-      "metric": 256,
-      "flags": [],
-      "pref": "medium",
-      "family": "inet6"
-    },
-    {
-      "dst": "fe80::/64",
-      "dev": "veth14b51d5",
-      "protocol": "kernel",
-      "metric": 256,
-      "flags": [],
-      "pref": "medium",
-      "family": "inet6"
-    },
-    {
-      "dst": "fe80::/64",
-      "dev": "veth0943af7",
-      "protocol": "kernel",
-      "metric": 256,
-      "flags": [],
-      "pref": "medium",
-      "family": "inet6"
-    },
-    {
-      "dst": "fe80::/64",
-      "dev": "vethe602415",
-      "protocol": "kernel",
-      "metric": 256,
-      "flags": [],
-      "pref": "medium",
-      "family": "inet6"
-    },
-    {
-      "dst": "fe80::/64",
-      "dev": "veth57ecc86",
+      "dev": "veth79ce7b1",
       "protocol": "kernel",
       "metric": 256,
       "flags": [],
@@ -1482,7 +1320,7 @@
     },
     {
       "dst": "fe80::/64",
-      "dev": "veth2622612",
+      "dev": "veth3edff48",
       "protocol": "kernel",
       "metric": 256,
       "flags": [],
@@ -1491,7 +1329,7 @@
     },
     {
       "dst": "fe80::/64",
-      "dev": "vethf6e7019",
+      "dev": "vethd4a591c",
       "protocol": "kernel",
       "metric": 256,
       "flags": [],
@@ -1500,7 +1338,7 @@
     },
     {
       "dst": "fe80::/64",
-      "dev": "vethf8e1828",
+      "dev": "br-3e2f0aa68620",
       "protocol": "kernel",
       "metric": 256,
       "flags": [],
@@ -1509,7 +1347,169 @@
     },
     {
       "dst": "fe80::/64",
-      "dev": "veth4a3df2f",
+      "dev": "veth1a11df5",
+      "protocol": "kernel",
+      "metric": 256,
+      "flags": [],
+      "pref": "medium",
+      "family": "inet6"
+    },
+    {
+      "dst": "fe80::/64",
+      "dev": "vethd38439d",
+      "protocol": "kernel",
+      "metric": 256,
+      "flags": [],
+      "pref": "medium",
+      "family": "inet6"
+    },
+    {
+      "dst": "fe80::/64",
+      "dev": "br-917de7d3530f",
+      "protocol": "kernel",
+      "metric": 256,
+      "flags": [],
+      "pref": "medium",
+      "family": "inet6"
+    },
+    {
+      "dst": "fe80::/64",
+      "dev": "vetha313296",
+      "protocol": "kernel",
+      "metric": 256,
+      "flags": [],
+      "pref": "medium",
+      "family": "inet6"
+    },
+    {
+      "dst": "fe80::/64",
+      "dev": "br-82c5c263be15",
+      "protocol": "kernel",
+      "metric": 256,
+      "flags": [],
+      "pref": "medium",
+      "family": "inet6"
+    },
+    {
+      "dst": "fe80::/64",
+      "dev": "vethf9d1a8e",
+      "protocol": "kernel",
+      "metric": 256,
+      "flags": [],
+      "pref": "medium",
+      "family": "inet6"
+    },
+    {
+      "dst": "fe80::/64",
+      "dev": "vethfe7943c",
+      "protocol": "kernel",
+      "metric": 256,
+      "flags": [],
+      "pref": "medium",
+      "family": "inet6"
+    },
+    {
+      "dst": "fe80::/64",
+      "dev": "veth398d039",
+      "protocol": "kernel",
+      "metric": 256,
+      "flags": [],
+      "pref": "medium",
+      "family": "inet6"
+    },
+    {
+      "dst": "fe80::/64",
+      "dev": "veth7b2f789",
+      "protocol": "kernel",
+      "metric": 256,
+      "flags": [],
+      "pref": "medium",
+      "family": "inet6"
+    },
+    {
+      "dst": "fe80::/64",
+      "dev": "br-526060eb673d",
+      "protocol": "kernel",
+      "metric": 256,
+      "flags": [],
+      "pref": "medium",
+      "family": "inet6"
+    },
+    {
+      "dst": "fe80::/64",
+      "dev": "vetha68d530",
+      "protocol": "kernel",
+      "metric": 256,
+      "flags": [],
+      "pref": "medium",
+      "family": "inet6"
+    },
+    {
+      "dst": "fe80::/64",
+      "dev": "veth8d63a1c",
+      "protocol": "kernel",
+      "metric": 256,
+      "flags": [],
+      "pref": "medium",
+      "family": "inet6"
+    },
+    {
+      "dst": "fe80::/64",
+      "dev": "veth9514941",
+      "protocol": "kernel",
+      "metric": 256,
+      "flags": [],
+      "pref": "medium",
+      "family": "inet6"
+    },
+    {
+      "dst": "fe80::/64",
+      "dev": "br-702dc767f6da",
+      "protocol": "kernel",
+      "metric": 256,
+      "flags": [],
+      "pref": "medium",
+      "family": "inet6"
+    },
+    {
+      "dst": "fe80::/64",
+      "dev": "vethd652be1",
+      "protocol": "kernel",
+      "metric": 256,
+      "flags": [],
+      "pref": "medium",
+      "family": "inet6"
+    },
+    {
+      "dst": "fe80::/64",
+      "dev": "vethdf75928",
+      "protocol": "kernel",
+      "metric": 256,
+      "flags": [],
+      "pref": "medium",
+      "family": "inet6"
+    },
+    {
+      "dst": "fe80::/64",
+      "dev": "veth0510d30",
+      "protocol": "kernel",
+      "metric": 256,
+      "flags": [],
+      "pref": "medium",
+      "family": "inet6"
+    },
+    {
+      "dst": "fe80::/64",
+      "dev": "veth86928a9",
+      "protocol": "kernel",
+      "metric": 256,
+      "flags": [],
+      "pref": "medium",
+      "family": "inet6"
+    },
+    {
+      "dst": "fe80::/64",
+      "dev": "veth1d15479",
       "protocol": "kernel",
       "metric": 256,
       "flags": [],
@@ -1539,10 +1539,18 @@
   "neighbors": [
     {
       "ip": "10.10.10.10",
-      "mac": "36:04:ec:2e:c2:c1",
+      "mac": "d6:6f:55:94:78:4f",
       "interface": "br-917de7d3530f",
       "state": [
         "REACHABLE"
+      ]
+    },
+    {
+      "ip": "10.10.10.20",
+      "mac": "7e:25:64:44:22:f9",
+      "interface": "br-917de7d3530f",
+      "state": [
+        "STALE"
       ]
     },
     {
@@ -1554,15 +1562,7 @@
       ]
     },
     {
-      "ip": "10.10.10.20",
-      "mac": "3a:e8:6c:8b:92:fa",
-      "interface": "br-917de7d3530f",
-      "state": [
-        "STALE"
-      ]
-    },
-    {
-      "ip": "fe80::2",
+      "ip": "fd17:625c:f037:2::2",
       "mac": "52:54:00:12:35:00",
       "interface": "eth0",
       "state": [
@@ -1570,7 +1570,7 @@
       ]
     },
     {
-      "ip": "fd17:625c:f037:2::2",
+      "ip": "fe80::2",
       "mac": "52:54:00:12:35:00",
       "interface": "eth0",
       "state": [
@@ -1591,7 +1591,7 @@
       "processes": [
         {
           "name": "docker-proxy",
-          "pid": 2765,
+          "pid": 2761,
           "fd": 7
         }
       ],
@@ -1609,7 +1609,7 @@
       "processes": [
         {
           "name": "docker-proxy",
-          "pid": 2733,
+          "pid": 2813,
           "fd": 7
         }
       ],
@@ -1621,14 +1621,14 @@
       "recv_q": 0,
       "send_q": 4096,
       "local_address": "127.0.0.1",
-      "local_port": 46013,
+      "local_port": 37751,
       "peer_address": "0.0.0.0",
       "peer_port": null,
       "processes": [
         {
           "name": "containerd",
-          "pid": 666,
-          "fd": 13
+          "pid": 706,
+          "fd": 11
         }
       ],
       "process_resolution": "resolved"
@@ -1645,7 +1645,7 @@
       "processes": [
         {
           "name": "docker-proxy",
-          "pid": 2685,
+          "pid": 2684,
           "fd": 7
         }
       ],
@@ -1659,14 +1659,14 @@
       "recv_q": 0,
       "send_q": 0,
       "local_address": "10.10.10.254",
-      "local_port": 35368,
+      "local_port": 50282,
       "peer_address": "10.10.10.10",
       "peer_port": 24224,
       "processes": [
         {
           "name": "dockerd",
-          "pid": 705,
-          "fd": 92
+          "pid": 799,
+          "fd": 93
         }
       ],
       "process_resolution": "resolved",
@@ -1679,14 +1679,14 @@
       "recv_q": 0,
       "send_q": 0,
       "local_address": "10.10.10.254",
-      "local_port": 35382,
+      "local_port": 50296,
       "peer_address": "10.10.10.10",
       "peer_port": 24224,
       "processes": [
         {
           "name": "dockerd",
-          "pid": 705,
-          "fd": 107
+          "pid": 799,
+          "fd": 115
         }
       ],
       "process_resolution": "resolved",
@@ -1699,14 +1699,14 @@
       "recv_q": 0,
       "send_q": 0,
       "local_address": "10.10.10.254",
-      "local_port": 35394,
+      "local_port": 50298,
       "peer_address": "10.10.10.10",
       "peer_port": 24224,
       "processes": [
         {
           "name": "dockerd",
-          "pid": 705,
-          "fd": 122
+          "pid": 799,
+          "fd": 176
         }
       ],
       "process_resolution": "resolved",
@@ -1719,14 +1719,14 @@
       "recv_q": 0,
       "send_q": 0,
       "local_address": "10.10.10.254",
-      "local_port": 35400,
+      "local_port": 50304,
       "peer_address": "10.10.10.10",
       "peer_port": 24224,
       "processes": [
         {
           "name": "dockerd",
-          "pid": 705,
-          "fd": 124
+          "pid": 799,
+          "fd": 151
         }
       ],
       "process_resolution": "resolved",
@@ -1739,14 +1739,14 @@
       "recv_q": 0,
       "send_q": 0,
       "local_address": "10.10.10.254",
-      "local_port": 35416,
+      "local_port": 50308,
       "peer_address": "10.10.10.10",
       "peer_port": 24224,
       "processes": [
         {
           "name": "dockerd",
-          "pid": 705,
-          "fd": 152
+          "pid": 799,
+          "fd": 159
         }
       ],
       "process_resolution": "resolved",
@@ -1759,14 +1759,14 @@
       "recv_q": 0,
       "send_q": 0,
       "local_address": "10.10.10.254",
-      "local_port": 35422,
+      "local_port": 50320,
       "peer_address": "10.10.10.10",
       "peer_port": 24224,
       "processes": [
         {
           "name": "dockerd",
-          "pid": 705,
-          "fd": 153
+          "pid": 799,
+          "fd": 167
         }
       ],
       "process_resolution": "resolved",
@@ -1779,14 +1779,14 @@
       "recv_q": 0,
       "send_q": 0,
       "local_address": "10.10.10.254",
-      "local_port": 35434,
+      "local_port": 50330,
       "peer_address": "10.10.10.10",
       "peer_port": 24224,
       "processes": [
         {
           "name": "dockerd",
-          "pid": 705,
-          "fd": 156
+          "pid": 799,
+          "fd": 170
         }
       ],
       "process_resolution": "resolved",
@@ -1799,14 +1799,14 @@
       "recv_q": 0,
       "send_q": 0,
       "local_address": "10.10.10.254",
-      "local_port": 35438,
+      "local_port": 50336,
       "peer_address": "10.10.10.10",
       "peer_port": 24224,
       "processes": [
         {
           "name": "dockerd",
-          "pid": 705,
-          "fd": 134
+          "pid": 799,
+          "fd": 172
         }
       ],
       "process_resolution": "resolved",
@@ -1819,14 +1819,14 @@
       "recv_q": 0,
       "send_q": 0,
       "local_address": "10.10.10.254",
-      "local_port": 45762,
+      "local_port": 50350,
       "peer_address": "10.10.10.10",
       "peer_port": 24224,
       "processes": [
         {
           "name": "dockerd",
-          "pid": 705,
-          "fd": 154
+          "pid": 799,
+          "fd": 138
         }
       ],
       "process_resolution": "resolved",

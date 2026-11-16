@@ -1,0 +1,186 @@
+{
+  "generated_at": "2026-11-15T17:31:38.560622Z",
+  "hostname": "kali",
+  "sockets": [
+    {
+      "proto": "tcp",
+      "port": 8025,
+      "bind_addr": "127.0.0.1",
+      "process": "docker-proxy",
+      "pid": 2761,
+      "binary": "/usr/sbin/docker-proxy",
+      "package": "docker.io",
+      "service_unit": "docker.service",
+      "owners": [
+        {
+          "name": "docker-proxy",
+          "pid": 2761,
+          "fd": 7,
+          "binary": "/usr/sbin/docker-proxy",
+          "binary_deleted": false,
+          "package": "docker.io",
+          "packages": [
+            "docker.io"
+          ],
+          "service_unit": "docker.service",
+          "service_properties": {
+            "Id": "docker.service",
+            "LoadState": "loaded",
+            "ActiveState": "active",
+            "SubState": "running",
+            "FragmentPath": "/usr/lib/systemd/system/docker.service",
+            "MainPID": "799",
+            "ExecStart": "{ path=/usr/sbin/dockerd ; argv[]=/usr/sbin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock $DOCKER_OPTS ; ignore_errors=no ; start_time=[Sun 2026-11-15 11:34:42 EST] ; stop_time=[n/a] ; pid=799 ; code=(null) ; status=0/0 }",
+            "ControlGroup": "/system.slice/docker.service"
+          },
+          "enrichment_warnings": []
+        }
+      ],
+      "function_basis": {
+        "type": "unmapped",
+        "key": "8025"
+      },
+      "function": "unknown",
+      "criticality": "medium",
+      "exposure_flags": []
+    },
+    {
+      "proto": "tcp",
+      "port": 8000,
+      "bind_addr": "127.0.0.1",
+      "process": "docker-proxy",
+      "pid": 2813,
+      "binary": "/usr/sbin/docker-proxy",
+      "package": "docker.io",
+      "service_unit": "docker.service",
+      "owners": [
+        {
+          "name": "docker-proxy",
+          "pid": 2813,
+          "fd": 7,
+          "binary": "/usr/sbin/docker-proxy",
+          "binary_deleted": false,
+          "package": "docker.io",
+          "packages": [
+            "docker.io"
+          ],
+          "service_unit": "docker.service",
+          "service_properties": {
+            "Id": "docker.service",
+            "LoadState": "loaded",
+            "ActiveState": "active",
+            "SubState": "running",
+            "FragmentPath": "/usr/lib/systemd/system/docker.service",
+            "MainPID": "799",
+            "ExecStart": "{ path=/usr/sbin/dockerd ; argv[]=/usr/sbin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock $DOCKER_OPTS ; ignore_errors=no ; start_time=[Sun 2026-11-15 11:34:42 EST] ; stop_time=[n/a] ; pid=799 ; code=(null) ; status=0/0 }",
+            "ControlGroup": "/system.slice/docker.service"
+          },
+          "enrichment_warnings": []
+        }
+      ],
+      "function_basis": {
+        "type": "catalogue_port",
+        "key": "8000"
+      },
+      "function": "web",
+      "criticality": "high",
+      "exposure_flags": []
+    },
+    {
+      "proto": "tcp",
+      "port": 37751,
+      "bind_addr": "127.0.0.1",
+      "process": "containerd",
+      "pid": 706,
+      "binary": "/usr/bin/containerd",
+      "package": "containerd",
+      "service_unit": "containerd.service",
+      "owners": [
+        {
+          "name": "containerd",
+          "pid": 706,
+          "fd": 11,
+          "binary": "/usr/bin/containerd",
+          "binary_deleted": false,
+          "package": "containerd",
+          "packages": [
+            "containerd"
+          ],
+          "service_unit": "containerd.service",
+          "service_properties": {
+            "Id": "containerd.service",
+            "LoadState": "loaded",
+            "ActiveState": "active",
+            "SubState": "running",
+            "FragmentPath": "/usr/lib/systemd/system/containerd.service",
+            "MainPID": "706",
+            "ExecStart": "{ path=/usr/bin/containerd ; argv[]=/usr/bin/containerd ; ignore_errors=no ; start_time=[Sun 2026-11-15 11:34:41 EST] ; stop_time=[n/a] ; pid=706 ; code=(null) ; status=0/0 }",
+            "ControlGroup": "/system.slice/containerd.service"
+          },
+          "enrichment_warnings": []
+        }
+      ],
+      "function_basis": {
+        "type": "unmapped",
+        "key": "37751"
+      },
+      "function": "unknown",
+      "criticality": "medium",
+      "exposure_flags": []
+    },
+    {
+      "proto": "tcp",
+      "port": 18200,
+      "bind_addr": "127.0.0.1",
+      "process": "docker-proxy",
+      "pid": 2684,
+      "binary": "/usr/sbin/docker-proxy",
+      "package": "docker.io",
+      "service_unit": "docker.service",
+      "owners": [
+        {
+          "name": "docker-proxy",
+          "pid": 2684,
+          "fd": 7,
+          "binary": "/usr/sbin/docker-proxy",
+          "binary_deleted": false,
+          "package": "docker.io",
+          "packages": [
+            "docker.io"
+          ],
+          "service_unit": "docker.service",
+          "service_properties": {
+            "Id": "docker.service",
+            "LoadState": "loaded",
+            "ActiveState": "active",
+            "SubState": "running",
+            "FragmentPath": "/usr/lib/systemd/system/docker.service",
+            "MainPID": "799",
+            "ExecStart": "{ path=/usr/sbin/dockerd ; argv[]=/usr/sbin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock $DOCKER_OPTS ; ignore_errors=no ; start_time=[Sun 2026-11-15 11:34:42 EST] ; stop_time=[n/a] ; pid=799 ; code=(null) ; status=0/0 }",
+            "ControlGroup": "/system.slice/docker.service"
+          },
+          "enrichment_warnings": []
+        }
+      ],
+      "function_basis": {
+        "type": "unmapped",
+        "key": "18200"
+      },
+      "function": "unknown",
+      "criticality": "medium",
+      "exposure_flags": []
+    }
+  ],
+  "summary": {
+    "total_sockets": 4,
+    "flagged_sockets": 0,
+    "flagged_by_severity": {
+      "critical": 0,
+      "high": 0,
+      "medium": 0,
+      "low": 0
+    },
+    "unknown_functions": 3,
+    "sockets_with_enrichment_warnings": 0
+  }
+}
