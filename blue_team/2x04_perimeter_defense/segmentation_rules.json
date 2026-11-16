@@ -1,0 +1,701 @@
+{
+  "zones": [
+    {
+      "name": "DMZ",
+      "cidr": "10.10.1.0/24",
+      "purpose": "Public-facing application services",
+      "default_inbound": "drop",
+      "default_outbound": "accept",
+      "outbound_restrictions": [
+        "D01",
+        "D02",
+        "D03",
+        "D04"
+      ],
+      "hosts": [
+        {
+          "name": "dmz-app-01",
+          "address": "10.10.1.10",
+          "role": "application"
+        },
+        {
+          "name": "dmz-app-02",
+          "address": "10.10.1.11",
+          "role": "application"
+        }
+      ]
+    },
+    {
+      "name": "INTERNAL",
+      "cidr": "10.10.2.0/24",
+      "purpose": "Clinical workstations, application servers, databases and PACS",
+      "default_inbound": "drop",
+      "default_outbound": "accept",
+      "outbound_restrictions": [
+        "D05",
+        "D06",
+        "D07",
+        "D08"
+      ],
+      "hosts": [
+        {
+          "name": "clinical-ws-01",
+          "address": "10.10.2.101",
+          "role": "clinical_workstation"
+        },
+        {
+          "name": "clinical-ws-02",
+          "address": "10.10.2.102",
+          "role": "clinical_workstation"
+        },
+        {
+          "name": "billing-srv-01",
+          "address": "10.10.2.10",
+          "role": "database"
+        },
+        {
+          "name": "ehr-srv-01",
+          "address": "10.10.2.20",
+          "role": "clinical_application"
+        },
+        {
+          "name": "pacs-srv-01",
+          "address": "10.10.2.30",
+          "role": "pacs"
+        }
+      ]
+    },
+    {
+      "name": "MGMT",
+      "cidr": "10.10.3.0/24",
+      "purpose": "Administration and the shared DNS resolver",
+      "default_inbound": "drop",
+      "default_outbound": "accept",
+      "outbound_restrictions": [
+        "D09",
+        "D10",
+        "D11",
+        "D12"
+      ],
+      "hosts": [
+        {
+          "name": "mgmt-ws-01",
+          "address": "10.10.3.10",
+          "role": "administrator"
+        },
+        {
+          "name": "dns-resolver-01",
+          "address": "10.10.3.53",
+          "role": "dns_resolver"
+        }
+      ]
+    },
+    {
+      "name": "MEDDEV",
+      "cidr": "10.10.4.0/24",
+      "purpose": "Medical device VLAN with restricted outbound access",
+      "default_inbound": "drop",
+      "default_outbound": "accept",
+      "outbound_restrictions": [
+        "D13",
+        "D14",
+        "D15",
+        "D16",
+        "D17"
+      ],
+      "hosts": [
+        {
+          "name": "med-device-01",
+          "address": "10.10.4.10",
+          "role": "medical_device"
+        },
+        {
+          "name": "med-device-02",
+          "address": "10.10.4.11",
+          "role": "medical_device"
+        }
+      ]
+    }
+  ],
+  "flows": [
+    {
+      "id": "A01",
+      "action": "allow",
+      "src_zone": "MGMT",
+      "dst_zone": "INTERNAL",
+      "proto": "tcp",
+      "dport": 22,
+      "src_hosts": [],
+      "dst_hosts": [],
+      "src_cidrs": [
+        "10.10.3.0/24"
+      ],
+      "dst_cidrs": [
+        "10.10.2.0/24"
+      ],
+      "justification": "SSH administration from the management zone",
+      "exception_for": null
+    },
+    {
+      "id": "A02",
+      "action": "allow",
+      "src_zone": "MGMT",
+      "dst_zone": "DMZ",
+      "proto": "tcp",
+      "dport": 22,
+      "src_hosts": [],
+      "dst_hosts": [],
+      "src_cidrs": [
+        "10.10.3.0/24"
+      ],
+      "dst_cidrs": [
+        "10.10.1.0/24"
+      ],
+      "justification": "SSH administration from the management zone",
+      "exception_for": null
+    },
+    {
+      "id": "A03",
+      "action": "allow",
+      "src_zone": "INTERNAL",
+      "dst_zone": "INTERNAL",
+      "proto": "tcp",
+      "dport": 443,
+      "src_hosts": [
+        "clinical-ws-01",
+        "clinical-ws-02"
+      ],
+      "dst_hosts": [
+        "ehr-srv-01"
+      ],
+      "src_cidrs": [
+        "10.10.2.101/32",
+        "10.10.2.102/32"
+      ],
+      "dst_cidrs": [
+        "10.10.2.20/32"
+      ],
+      "justification": "Clinical workstations access the EHR web service",
+      "exception_for": null
+    },
+    {
+      "id": "A04",
+      "action": "allow",
+      "src_zone": "INTERNAL",
+      "dst_zone": "INTERNAL",
+      "proto": "tcp",
+      "dport": 3306,
+      "src_hosts": [
+        "clinical-ws-01",
+        "clinical-ws-02"
+      ],
+      "dst_hosts": [
+        "billing-srv-01"
+      ],
+      "src_cidrs": [
+        "10.10.2.101/32",
+        "10.10.2.102/32"
+      ],
+      "dst_cidrs": [
+        "10.10.2.10/32"
+      ],
+      "justification": "Clinical workstations access the billing database",
+      "exception_for": null
+    },
+    {
+      "id": "A05",
+      "action": "allow",
+      "src_zone": "DMZ",
+      "dst_zone": "INTERNAL",
+      "proto": "tcp",
+      "dport": 3306,
+      "src_hosts": [
+        "dmz-app-01",
+        "dmz-app-02"
+      ],
+      "dst_hosts": [
+        "billing-srv-01"
+      ],
+      "src_cidrs": [
+        "10.10.1.10/32",
+        "10.10.1.11/32"
+      ],
+      "dst_cidrs": [
+        "10.10.2.10/32"
+      ],
+      "justification": "Only the named DMZ application hosts may access the database",
+      "exception_for": null
+    },
+    {
+      "id": "A06",
+      "action": "allow",
+      "src_zone": "MEDDEV",
+      "dst_zone": "INTERNAL",
+      "proto": "tcp",
+      "dport": 4242,
+      "src_hosts": [],
+      "dst_hosts": [
+        "pacs-srv-01"
+      ],
+      "src_cidrs": [
+        "10.10.4.0/24"
+      ],
+      "dst_cidrs": [
+        "10.10.2.30/32"
+      ],
+      "justification": "DICOM imaging to PACS",
+      "exception_for": null
+    },
+    {
+      "id": "A07",
+      "action": "allow",
+      "src_zone": "MEDDEV",
+      "dst_zone": "INTERNAL",
+      "proto": "tcp",
+      "dport": 443,
+      "src_hosts": [],
+      "dst_hosts": [
+        "ehr-srv-01"
+      ],
+      "src_cidrs": [
+        "10.10.4.0/24"
+      ],
+      "dst_cidrs": [
+        "10.10.2.20/32"
+      ],
+      "justification": "EHR web integration for device display",
+      "exception_for": null
+    },
+    {
+      "id": "A08",
+      "action": "allow",
+      "src_zone": "ALL",
+      "dst_zone": "MGMT",
+      "proto": "udp",
+      "dport": 53,
+      "src_hosts": [],
+      "dst_hosts": [
+        "dns-resolver-01"
+      ],
+      "src_cidrs": [
+        "10.10.1.0/24",
+        "10.10.2.0/24",
+        "10.10.3.0/24",
+        "10.10.4.0/24"
+      ],
+      "dst_cidrs": [
+        "10.10.3.53/32"
+      ],
+      "justification": "Shared DNS resolution through the management resolver",
+      "exception_for": null
+    },
+    {
+      "id": "A09",
+      "action": "allow",
+      "src_zone": "ALL",
+      "dst_zone": "MGMT",
+      "proto": "tcp",
+      "dport": 53,
+      "src_hosts": [],
+      "dst_hosts": [
+        "dns-resolver-01"
+      ],
+      "src_cidrs": [
+        "10.10.1.0/24",
+        "10.10.2.0/24",
+        "10.10.3.0/24",
+        "10.10.4.0/24"
+      ],
+      "dst_cidrs": [
+        "10.10.3.53/32"
+      ],
+      "justification": "Shared DNS resolution through the management resolver",
+      "exception_for": null
+    },
+    {
+      "id": "A10",
+      "action": "allow",
+      "src_zone": "MGMT",
+      "dst_zone": "MEDDEV",
+      "proto": "tcp",
+      "dport": 22,
+      "src_hosts": [],
+      "dst_hosts": [],
+      "src_cidrs": [
+        "10.10.3.0/24"
+      ],
+      "dst_cidrs": [
+        "10.10.4.0/24"
+      ],
+      "justification": "Authorised SSH administration of medical devices",
+      "exception_for": null
+    },
+    {
+      "id": "A11",
+      "action": "allow",
+      "src_zone": "MGMT",
+      "dst_zone": "MEDDEV",
+      "proto": "tcp",
+      "dport": 4242,
+      "src_hosts": [],
+      "dst_hosts": [],
+      "src_cidrs": [
+        "10.10.3.0/24"
+      ],
+      "dst_cidrs": [
+        "10.10.4.0/24"
+      ],
+      "justification": "Authorised management access for DICOM diagnostics",
+      "exception_for": null
+    },
+    {
+      "id": "D01",
+      "action": "deny_all",
+      "src_zone": "DMZ",
+      "dst_zone": "DMZ",
+      "proto": "all",
+      "dport": null,
+      "src_hosts": [],
+      "dst_hosts": [],
+      "src_cidrs": [
+        "10.10.1.0/24"
+      ],
+      "dst_cidrs": [
+        "10.10.1.0/24"
+      ],
+      "justification": "No allow flows are authorised for this zone pair",
+      "exception_for": null
+    },
+    {
+      "id": "D02",
+      "action": "deny_all",
+      "src_zone": "DMZ",
+      "dst_zone": "INTERNAL",
+      "proto": "all",
+      "dport": null,
+      "src_hosts": [],
+      "dst_hosts": [],
+      "src_cidrs": [
+        "10.10.1.0/24"
+      ],
+      "dst_cidrs": [
+        "10.10.2.0/24"
+      ],
+      "justification": "Deny traffic not matched by the preceding explicit allow flows",
+      "exception_for": null
+    },
+    {
+      "id": "D03",
+      "action": "deny_all",
+      "src_zone": "DMZ",
+      "dst_zone": "MGMT",
+      "proto": "all",
+      "dport": null,
+      "src_hosts": [],
+      "dst_hosts": [],
+      "src_cidrs": [
+        "10.10.1.0/24"
+      ],
+      "dst_cidrs": [
+        "10.10.3.0/24"
+      ],
+      "justification": "Deny traffic not matched by the preceding explicit allow flows",
+      "exception_for": null
+    },
+    {
+      "id": "D04",
+      "action": "deny_all",
+      "src_zone": "DMZ",
+      "dst_zone": "MEDDEV",
+      "proto": "all",
+      "dport": null,
+      "src_hosts": [],
+      "dst_hosts": [],
+      "src_cidrs": [
+        "10.10.1.0/24"
+      ],
+      "dst_cidrs": [
+        "10.10.4.0/24"
+      ],
+      "justification": "No allow flows are authorised for this zone pair",
+      "exception_for": null
+    },
+    {
+      "id": "D05",
+      "action": "deny_all",
+      "src_zone": "INTERNAL",
+      "dst_zone": "DMZ",
+      "proto": "all",
+      "dport": null,
+      "src_hosts": [],
+      "dst_hosts": [],
+      "src_cidrs": [
+        "10.10.2.0/24"
+      ],
+      "dst_cidrs": [
+        "10.10.1.0/24"
+      ],
+      "justification": "No allow flows are authorised for this zone pair",
+      "exception_for": null
+    },
+    {
+      "id": "D06",
+      "action": "deny_all",
+      "src_zone": "INTERNAL",
+      "dst_zone": "INTERNAL",
+      "proto": "all",
+      "dport": null,
+      "src_hosts": [],
+      "dst_hosts": [],
+      "src_cidrs": [
+        "10.10.2.0/24"
+      ],
+      "dst_cidrs": [
+        "10.10.2.0/24"
+      ],
+      "justification": "Deny traffic not matched by the preceding explicit allow flows",
+      "exception_for": null
+    },
+    {
+      "id": "D07",
+      "action": "deny_all",
+      "src_zone": "INTERNAL",
+      "dst_zone": "MGMT",
+      "proto": "all",
+      "dport": null,
+      "src_hosts": [],
+      "dst_hosts": [],
+      "src_cidrs": [
+        "10.10.2.0/24"
+      ],
+      "dst_cidrs": [
+        "10.10.3.0/24"
+      ],
+      "justification": "Deny traffic not matched by the preceding explicit allow flows",
+      "exception_for": null
+    },
+    {
+      "id": "D08",
+      "action": "deny_all",
+      "src_zone": "INTERNAL",
+      "dst_zone": "MEDDEV",
+      "proto": "all",
+      "dport": null,
+      "src_hosts": [],
+      "dst_hosts": [],
+      "src_cidrs": [
+        "10.10.2.0/24"
+      ],
+      "dst_cidrs": [
+        "10.10.4.0/24"
+      ],
+      "justification": "No allow flows are authorised for this zone pair",
+      "exception_for": null
+    },
+    {
+      "id": "D09",
+      "action": "deny_all",
+      "src_zone": "MGMT",
+      "dst_zone": "DMZ",
+      "proto": "all",
+      "dport": null,
+      "src_hosts": [],
+      "dst_hosts": [],
+      "src_cidrs": [
+        "10.10.3.0/24"
+      ],
+      "dst_cidrs": [
+        "10.10.1.0/24"
+      ],
+      "justification": "Deny traffic not matched by the preceding explicit allow flows",
+      "exception_for": null
+    },
+    {
+      "id": "D10",
+      "action": "deny_all",
+      "src_zone": "MGMT",
+      "dst_zone": "INTERNAL",
+      "proto": "all",
+      "dport": null,
+      "src_hosts": [],
+      "dst_hosts": [],
+      "src_cidrs": [
+        "10.10.3.0/24"
+      ],
+      "dst_cidrs": [
+        "10.10.2.0/24"
+      ],
+      "justification": "Deny traffic not matched by the preceding explicit allow flows",
+      "exception_for": null
+    },
+    {
+      "id": "D11",
+      "action": "deny_all",
+      "src_zone": "MGMT",
+      "dst_zone": "MGMT",
+      "proto": "all",
+      "dport": null,
+      "src_hosts": [],
+      "dst_hosts": [],
+      "src_cidrs": [
+        "10.10.3.0/24"
+      ],
+      "dst_cidrs": [
+        "10.10.3.0/24"
+      ],
+      "justification": "Deny traffic not matched by the preceding explicit allow flows",
+      "exception_for": null
+    },
+    {
+      "id": "D12",
+      "action": "deny_all",
+      "src_zone": "MGMT",
+      "dst_zone": "MEDDEV",
+      "proto": "all",
+      "dport": null,
+      "src_hosts": [],
+      "dst_hosts": [],
+      "src_cidrs": [
+        "10.10.3.0/24"
+      ],
+      "dst_cidrs": [
+        "10.10.4.0/24"
+      ],
+      "justification": "Deny traffic not matched by the preceding explicit allow flows",
+      "exception_for": null
+    },
+    {
+      "id": "D13",
+      "action": "deny_all",
+      "src_zone": "MEDDEV",
+      "dst_zone": "DMZ",
+      "proto": "all",
+      "dport": null,
+      "src_hosts": [],
+      "dst_hosts": [],
+      "src_cidrs": [
+        "10.10.4.0/24"
+      ],
+      "dst_cidrs": [
+        "10.10.1.0/24"
+      ],
+      "justification": "No allow flows are authorised for this zone pair",
+      "exception_for": null
+    },
+    {
+      "id": "D14",
+      "action": "deny_all",
+      "src_zone": "MEDDEV",
+      "dst_zone": "INTERNAL",
+      "proto": "all",
+      "dport": null,
+      "src_hosts": [],
+      "dst_hosts": [],
+      "src_cidrs": [
+        "10.10.4.0/24"
+      ],
+      "dst_cidrs": [
+        "10.10.2.0/24"
+      ],
+      "justification": "Deny traffic not matched by the preceding explicit allow flows",
+      "exception_for": null
+    },
+    {
+      "id": "D15",
+      "action": "deny_all",
+      "src_zone": "MEDDEV",
+      "dst_zone": "MGMT",
+      "proto": "all",
+      "dport": null,
+      "src_hosts": [],
+      "dst_hosts": [],
+      "src_cidrs": [
+        "10.10.4.0/24"
+      ],
+      "dst_cidrs": [
+        "10.10.3.0/24"
+      ],
+      "justification": "Deny traffic not matched by the preceding explicit allow flows",
+      "exception_for": null
+    },
+    {
+      "id": "D16",
+      "action": "deny_all",
+      "src_zone": "MEDDEV",
+      "dst_zone": "MEDDEV",
+      "proto": "all",
+      "dport": null,
+      "src_hosts": [],
+      "dst_hosts": [],
+      "src_cidrs": [
+        "10.10.4.0/24"
+      ],
+      "dst_cidrs": [
+        "10.10.4.0/24"
+      ],
+      "justification": "No allow flows are authorised for this zone pair",
+      "exception_for": null
+    },
+    {
+      "id": "D17",
+      "action": "deny_all",
+      "src_zone": "MEDDEV",
+      "dst_zone": "INTERNET",
+      "proto": "all",
+      "dport": null,
+      "src_hosts": [],
+      "dst_hosts": [],
+      "src_cidrs": [
+        "10.10.4.0/24"
+      ],
+      "dst_cidrs": [
+        "0.0.0.0/5",
+        "8.0.0.0/7",
+        "10.0.0.0/13",
+        "10.8.0.0/15",
+        "10.10.0.0/24",
+        "10.10.5.0/24",
+        "10.10.6.0/23",
+        "10.10.8.0/21",
+        "10.10.16.0/20",
+        "10.10.32.0/19",
+        "10.10.64.0/18",
+        "10.10.128.0/17",
+        "10.11.0.0/16",
+        "10.12.0.0/14",
+        "10.16.0.0/12",
+        "10.32.0.0/11",
+        "10.64.0.0/10",
+        "10.128.0.0/9",
+        "11.0.0.0/8",
+        "12.0.0.0/6",
+        "16.0.0.0/4",
+        "32.0.0.0/3",
+        "64.0.0.0/2",
+        "128.0.0.0/1"
+      ],
+      "justification": "Medical devices must not reach the public Internet or other external networks",
+      "exception_for": null
+    }
+  ],
+  "summary": {
+    "flow_count": 28,
+    "allow_count": 11,
+    "deny_count": 17,
+    "cross_zone_pairs": 12,
+    "allowed_cross_zone_pairs": 8,
+    "denied_cross_zone_pairs": 4,
+    "address_family": "ipv4",
+    "address_plan": "Proposed design values; not discovered endpoint addresses",
+    "evaluation_order": "First matching flow wins; terminal deny_all rules follow allows",
+    "special_zones": {
+      "ALL": [
+        "DMZ",
+        "INTERNAL",
+        "MGMT",
+        "MEDDEV"
+      ],
+      "INTERNET": "IPv4 addresses outside the four modelled zone CIDRs"
+    }
+  }
+}
