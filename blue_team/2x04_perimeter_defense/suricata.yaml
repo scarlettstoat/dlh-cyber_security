@@ -1,0 +1,140 @@
+%YAML 1.1
+---
+# MedDefense: run with suricata -c ./suricata.yaml -r <provided.pcap> -l <output-dir>.
+# This file is local to the project; it is not the system service configuration.
+vars:
+  address-groups:
+    HOME_NET: "[10.10.0.0/16]"
+    EXTERNAL_NET: "!$HOME_NET"
+    HTTP_SERVERS: "$HOME_NET"
+    SMTP_SERVERS: "$HOME_NET"
+    SQL_SERVERS: "$HOME_NET"
+    DNS_SERVERS: "$HOME_NET"
+    DC_SERVERS: "$HOME_NET"
+    TELNET_SERVERS: "$HOME_NET"
+    FTP_SERVERS: "$HOME_NET"
+    DNP3_SERVER: "$HOME_NET"
+    DNP3_CLIENT: "$HOME_NET"
+    MODBUS_SERVER: "$HOME_NET"
+    MODBUS_CLIENT: "$HOME_NET"
+    ENIP_SERVER: "$HOME_NET"
+    ENIP_CLIENT: "$HOME_NET"
+    AIM_SERVERS: "$EXTERNAL_NET"
+  port-groups:
+    HTTP_PORTS: "[80,81,311,591,593,800,801,808,880,901,903,981,1010,1311,1830,2301,2381,2809,3128,3702,4343,4848,5250,7001,7144,7145,7510,7777,7779,8000,8008,8014,8028,8080,8088,8090,8118,8123,8180,8181,8243,8280,8300,8333,8530,8531,8800,8888,8899,8983,9000,9060,9080,9090,9443,9999,10000,11371,19227,34443,34445,50002,55555]"
+    SHELLCODE_PORTS: "!80"
+    ORACLE_PORTS: 1521
+    SSH_PORTS: 22
+    DNP3_PORTS: 20000
+    MODBUS_PORTS: 502
+    ENIP_PORTS: 44818
+    FTP_PORTS: 21
+    FILE_DATA_PORTS: "[$HTTP_PORTS,110,143]"
+    GENEVE_PORTS: 6081
+    VXLAN_PORTS: 4789
+    TEREDO_PORTS: 3544
+    SIP_PORTS: "[5060,5061]"
+runmode: single
+default-rule-path: "/var/lib/suricata/rules"
+rule-files:
+  - "botcc.portgrouped.rules"
+  - "botcc.rules"
+  - "ciarmy.rules"
+  - "compromised.rules"
+  - "drop.rules"
+  - "dshield.rules"
+  - "emerging-activex.rules"
+  - "emerging-adware_pup.rules"
+  - "emerging-attack_response.rules"
+  - "emerging-chat.rules"
+  - "emerging-coinminer.rules"
+  - "emerging-current_events.rules"
+  - "emerging-deleted.rules"
+  - "emerging-dns.rules"
+  - "emerging-dos.rules"
+  - "emerging-exploit.rules"
+  - "emerging-exploit_kit.rules"
+  - "emerging-ftp.rules"
+  - "emerging-games.rules"
+  - "emerging-hunting.rules"
+  - "emerging-icmp.rules"
+  - "emerging-icmp_info.rules"
+  - "emerging-imap.rules"
+  - "emerging-inappropriate.rules"
+  - "emerging-info.rules"
+  - "emerging-ja3.rules"
+  - "emerging-malware.rules"
+  - "emerging-misc.rules"
+  - "emerging-mobile_malware.rules"
+  - "emerging-netbios.rules"
+  - "emerging-p2p.rules"
+  - "emerging-phishing.rules"
+  - "emerging-policy.rules"
+  - "emerging-pop3.rules"
+  - "emerging-retired.rules"
+  - "emerging-rpc.rules"
+  - "emerging-scada.rules"
+  - "emerging-scan.rules"
+  - "emerging-shellcode.rules"
+  - "emerging-smtp.rules"
+  - "emerging-snmp.rules"
+  - "emerging-sql.rules"
+  - "emerging-telnet.rules"
+  - "emerging-tftp.rules"
+  - "emerging-user_agents.rules"
+  - "emerging-voip.rules"
+  - "emerging-web_client.rules"
+  - "emerging-web_server.rules"
+  - "emerging-web_specific_apps.rules"
+  - "emerging-worm.rules"
+  - "threatview_CS_c2.rules"
+  - "tor.rules"
+  - "zz-meddefense-supplemental.rules"
+  - "meddefense.rules"
+default-log-dir: "/var/log/suricata"
+classification-file: "/var/lib/suricata/rules/classification.config"
+reference-config-file: "/etc/suricata/reference.config"
+pcap-file:
+  enabled: yes
+  checksum-checks: auto
+  delete-when-done: no
+outputs:
+  - eve-log:
+      enabled: yes
+      type: json
+      filetype: regular
+      filename: eve.json
+      threaded: false
+      types:
+        - alert
+        - http
+        - dns
+        - tls
+        - files:  # Suricata's logger name; emitted records have event_type: fileinfo.
+            force-magic: no
+        - flow
+        - stats
+app-layer:
+  protocols:
+    http:
+      enabled: yes
+      libhtp:
+        default-config:
+          personality: IDS
+          request-body-limit: 100kb
+          response-body-limit: 100kb
+    dns:
+      tcp:
+        enabled: yes
+      udp:
+        enabled: yes
+    tls:
+      enabled: yes
+logging:
+  default-log-level: info
+  outputs:
+    - console:
+        enabled: yes
+    - file:
+        enabled: yes
+        filename: suricata.log

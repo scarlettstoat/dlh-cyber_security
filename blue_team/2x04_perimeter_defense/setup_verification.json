@@ -1,0 +1,412 @@
+{
+  "generated_at": "2026-11-18T13:11:33.072816Z",
+  "status": "passed",
+  "installed_version": "8.0.8",
+  "rule_files_loaded": 54,
+  "rule_count": 45022,
+  "config_test_exit": 0,
+  "smoke_pcap": "/home/analyst/MedDefense_Lab/PCAPs/smoke.pcap",
+  "smoke_alerts": 2,
+  "offline_only": true,
+  "package_install_mode": "APT --no-download (cached distribution packages)",
+  "inputs": {
+    "rules_source": "/home/analyst/MedDefense_Lab/suricata/rules",
+    "source_file_count": 54,
+    "provided_rule_file_count": 53,
+    "smoke_sha256": "e0f137ed0fd53b4f1bea28e3fc4d10d5cdd830e07a9c71e7703019fd17643cbe"
+  },
+  "packages_before": {
+    "suricata": {
+      "binary": null,
+      "package_status": "not installed"
+    },
+    "jq": {
+      "binary": "/usr/bin/jq",
+      "package_status": "installed\t1.8.2-1"
+    }
+  },
+  "before": {
+    "service": {
+      "manager": "systemd",
+      "LoadState": "not-found",
+      "ActiveState": "inactive",
+      "UnitFileState": ""
+    },
+    "rule_files": [
+      {
+        "path": "/var/lib/suricata/rules/botcc.portgrouped.rules",
+        "exists": false
+      },
+      {
+        "path": "/var/lib/suricata/rules/botcc.rules",
+        "exists": false
+      },
+      {
+        "path": "/var/lib/suricata/rules/ciarmy.rules",
+        "exists": false
+      },
+      {
+        "path": "/var/lib/suricata/rules/classification.config",
+        "exists": false
+      },
+      {
+        "path": "/var/lib/suricata/rules/compromised.rules",
+        "exists": false
+      },
+      {
+        "path": "/var/lib/suricata/rules/drop.rules",
+        "exists": false
+      },
+      {
+        "path": "/var/lib/suricata/rules/dshield.rules",
+        "exists": false
+      },
+      {
+        "path": "/var/lib/suricata/rules/emerging-activex.rules",
+        "exists": false
+      },
+      {
+        "path": "/var/lib/suricata/rules/emerging-adware_pup.rules",
+        "exists": false
+      },
+      {
+        "path": "/var/lib/suricata/rules/emerging-attack_response.rules",
+        "exists": false
+      },
+      {
+        "path": "/var/lib/suricata/rules/emerging-chat.rules",
+        "exists": false
+      },
+      {
+        "path": "/var/lib/suricata/rules/emerging-coinminer.rules",
+        "exists": false
+      },
+      {
+        "path": "/var/lib/suricata/rules/emerging-current_events.rules",
+        "exists": false
+      },
+      {
+        "path": "/var/lib/suricata/rules/emerging-deleted.rules",
+        "exists": false
+      },
+      {
+        "path": "/var/lib/suricata/rules/emerging-dns.rules",
+        "exists": false
+      },
+      {
+        "path": "/var/lib/suricata/rules/emerging-dos.rules",
+        "exists": false
+      },
+      {
+        "path": "/var/lib/suricata/rules/emerging-exploit.rules",
+        "exists": false
+      },
+      {
+        "path": "/var/lib/suricata/rules/emerging-exploit_kit.rules",
+        "exists": false
+      },
+      {
+        "path": "/var/lib/suricata/rules/emerging-ftp.rules",
+        "exists": false
+      },
+      {
+        "path": "/var/lib/suricata/rules/emerging-games.rules",
+        "exists": false
+      },
+      {
+        "path": "/var/lib/suricata/rules/emerging-hunting.rules",
+        "exists": false
+      },
+      {
+        "path": "/var/lib/suricata/rules/emerging-icmp.rules",
+        "exists": false
+      },
+      {
+        "path": "/var/lib/suricata/rules/emerging-icmp_info.rules",
+        "exists": false
+      },
+      {
+        "path": "/var/lib/suricata/rules/emerging-imap.rules",
+        "exists": false
+      },
+      {
+        "path": "/var/lib/suricata/rules/emerging-inappropriate.rules",
+        "exists": false
+      },
+      {
+        "path": "/var/lib/suricata/rules/emerging-info.rules",
+        "exists": false
+      },
+      {
+        "path": "/var/lib/suricata/rules/emerging-ja3.rules",
+        "exists": false
+      },
+      {
+        "path": "/var/lib/suricata/rules/emerging-malware.rules",
+        "exists": false
+      },
+      {
+        "path": "/var/lib/suricata/rules/emerging-misc.rules",
+        "exists": false
+      },
+      {
+        "path": "/var/lib/suricata/rules/emerging-mobile_malware.rules",
+        "exists": false
+      },
+      {
+        "path": "/var/lib/suricata/rules/emerging-netbios.rules",
+        "exists": false
+      },
+      {
+        "path": "/var/lib/suricata/rules/emerging-p2p.rules",
+        "exists": false
+      },
+      {
+        "path": "/var/lib/suricata/rules/emerging-phishing.rules",
+        "exists": false
+      },
+      {
+        "path": "/var/lib/suricata/rules/emerging-policy.rules",
+        "exists": false
+      },
+      {
+        "path": "/var/lib/suricata/rules/emerging-pop3.rules",
+        "exists": false
+      },
+      {
+        "path": "/var/lib/suricata/rules/emerging-retired.rules",
+        "exists": false
+      },
+      {
+        "path": "/var/lib/suricata/rules/emerging-rpc.rules",
+        "exists": false
+      },
+      {
+        "path": "/var/lib/suricata/rules/emerging-scada.rules",
+        "exists": false
+      },
+      {
+        "path": "/var/lib/suricata/rules/emerging-scan.rules",
+        "exists": false
+      },
+      {
+        "path": "/var/lib/suricata/rules/emerging-shellcode.rules",
+        "exists": false
+      },
+      {
+        "path": "/var/lib/suricata/rules/emerging-smtp.rules",
+        "exists": false
+      },
+      {
+        "path": "/var/lib/suricata/rules/emerging-snmp.rules",
+        "exists": false
+      },
+      {
+        "path": "/var/lib/suricata/rules/emerging-sql.rules",
+        "exists": false
+      },
+      {
+        "path": "/var/lib/suricata/rules/emerging-telnet.rules",
+        "exists": false
+      },
+      {
+        "path": "/var/lib/suricata/rules/emerging-tftp.rules",
+        "exists": false
+      },
+      {
+        "path": "/var/lib/suricata/rules/emerging-user_agents.rules",
+        "exists": false
+      },
+      {
+        "path": "/var/lib/suricata/rules/emerging-voip.rules",
+        "exists": false
+      },
+      {
+        "path": "/var/lib/suricata/rules/emerging-web_client.rules",
+        "exists": false
+      },
+      {
+        "path": "/var/lib/suricata/rules/emerging-web_server.rules",
+        "exists": false
+      },
+      {
+        "path": "/var/lib/suricata/rules/emerging-web_specific_apps.rules",
+        "exists": false
+      },
+      {
+        "path": "/var/lib/suricata/rules/emerging-worm.rules",
+        "exists": false
+      },
+      {
+        "path": "/var/lib/suricata/rules/threatview_CS_c2.rules",
+        "exists": false
+      },
+      {
+        "path": "/var/lib/suricata/rules/tor.rules",
+        "exists": false
+      },
+      {
+        "path": "/var/lib/suricata/rules/zz-meddefense-supplemental.rules",
+        "exists": false
+      },
+      {
+        "path": "/var/lib/suricata/rules/meddefense.rules",
+        "exists": false
+      }
+    ],
+    "project_yaml": {
+      "path": "/home/scarlettstoat/dlh-cyber_security/blue_team/2x04_perimeter_defense/suricata.yaml",
+      "exists": false
+    },
+    "smoke_directory_exists": false
+  },
+  "backup_directory": "/var/backups/meddefense-suricata-20261118T131133141760Z",
+  "package_install_exit": 0,
+  "version_banner": "This is Suricata version 8.0.8 RELEASE",
+  "copy_verification": {
+    "source_file_count": 54,
+    "verified_file_count": 54,
+    "configured_rule_files": [
+      "botcc.portgrouped.rules",
+      "botcc.rules",
+      "ciarmy.rules",
+      "compromised.rules",
+      "drop.rules",
+      "dshield.rules",
+      "emerging-activex.rules",
+      "emerging-adware_pup.rules",
+      "emerging-attack_response.rules",
+      "emerging-chat.rules",
+      "emerging-coinminer.rules",
+      "emerging-current_events.rules",
+      "emerging-deleted.rules",
+      "emerging-dns.rules",
+      "emerging-dos.rules",
+      "emerging-exploit.rules",
+      "emerging-exploit_kit.rules",
+      "emerging-ftp.rules",
+      "emerging-games.rules",
+      "emerging-hunting.rules",
+      "emerging-icmp.rules",
+      "emerging-icmp_info.rules",
+      "emerging-imap.rules",
+      "emerging-inappropriate.rules",
+      "emerging-info.rules",
+      "emerging-ja3.rules",
+      "emerging-malware.rules",
+      "emerging-misc.rules",
+      "emerging-mobile_malware.rules",
+      "emerging-netbios.rules",
+      "emerging-p2p.rules",
+      "emerging-phishing.rules",
+      "emerging-policy.rules",
+      "emerging-pop3.rules",
+      "emerging-retired.rules",
+      "emerging-rpc.rules",
+      "emerging-scada.rules",
+      "emerging-scan.rules",
+      "emerging-shellcode.rules",
+      "emerging-smtp.rules",
+      "emerging-snmp.rules",
+      "emerging-sql.rules",
+      "emerging-telnet.rules",
+      "emerging-tftp.rules",
+      "emerging-user_agents.rules",
+      "emerging-voip.rules",
+      "emerging-web_client.rules",
+      "emerging-web_server.rules",
+      "emerging-web_specific_apps.rules",
+      "emerging-worm.rules",
+      "threatview_CS_c2.rules",
+      "tor.rules",
+      "zz-meddefense-supplemental.rules",
+      "meddefense.rules"
+    ],
+    "custom_rules_preserved": false
+  },
+  "rule_files": [
+    "botcc.portgrouped.rules",
+    "botcc.rules",
+    "ciarmy.rules",
+    "compromised.rules",
+    "drop.rules",
+    "dshield.rules",
+    "emerging-activex.rules",
+    "emerging-adware_pup.rules",
+    "emerging-attack_response.rules",
+    "emerging-chat.rules",
+    "emerging-coinminer.rules",
+    "emerging-current_events.rules",
+    "emerging-deleted.rules",
+    "emerging-dns.rules",
+    "emerging-dos.rules",
+    "emerging-exploit.rules",
+    "emerging-exploit_kit.rules",
+    "emerging-ftp.rules",
+    "emerging-games.rules",
+    "emerging-hunting.rules",
+    "emerging-icmp.rules",
+    "emerging-icmp_info.rules",
+    "emerging-imap.rules",
+    "emerging-inappropriate.rules",
+    "emerging-info.rules",
+    "emerging-ja3.rules",
+    "emerging-malware.rules",
+    "emerging-misc.rules",
+    "emerging-mobile_malware.rules",
+    "emerging-netbios.rules",
+    "emerging-p2p.rules",
+    "emerging-phishing.rules",
+    "emerging-policy.rules",
+    "emerging-pop3.rules",
+    "emerging-retired.rules",
+    "emerging-rpc.rules",
+    "emerging-scada.rules",
+    "emerging-scan.rules",
+    "emerging-shellcode.rules",
+    "emerging-smtp.rules",
+    "emerging-snmp.rules",
+    "emerging-sql.rules",
+    "emerging-telnet.rules",
+    "emerging-tftp.rules",
+    "emerging-user_agents.rules",
+    "emerging-voip.rules",
+    "emerging-web_client.rules",
+    "emerging-web_server.rules",
+    "emerging-web_specific_apps.rules",
+    "emerging-worm.rules",
+    "threatview_CS_c2.rules",
+    "tor.rules",
+    "zz-meddefense-supplemental.rules",
+    "meddefense.rules"
+  ],
+  "config_test_command": [
+    "suricata",
+    "-T",
+    "-c",
+    "./suricata.yaml",
+    "-v",
+    "--init-errors-fatal"
+  ],
+  "smoke_command": [
+    "suricata",
+    "-c",
+    "./suricata.yaml",
+    "-r",
+    "/home/analyst/MedDefense_Lab/PCAPs/smoke.pcap",
+    "-l",
+    "/tmp/suricata-smoke",
+    "--init-errors-fatal"
+  ],
+  "smoke_exit": 0,
+  "smoke_eve": "/tmp/suricata-smoke/eve.json",
+  "smoke_eve_sha256": "a6c1375fbdf167216067c49ef2748b1cfa73e24efc9e9d9df701c130f534f9ee",
+  "pcap_unchanged": true,
+  "service_after": {
+    "manager": "systemd",
+    "LoadState": "masked",
+    "ActiveState": "inactive",
+    "UnitFileState": "masked"
+  },
+  "completed_at": "2026-11-18T13:12:02.354559Z"
+}
