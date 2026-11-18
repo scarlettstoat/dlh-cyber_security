@@ -1,0 +1,10 @@
+alert tcp 10.10.4.0/24 any -> $EXTERNAL_NET any (msg:"MEDDEFENSE Med device TCP to Internet"; classtype:policy-violation; sid:9000001; rev:1;)
+alert tcp 10.10.5.0/24 any -> $HOME_NET 445 (msg:"MEDDEFENSE Guest to SMB"; classtype:policy-violation; sid:9000002; rev:1;)
+# Approximation: directional flow bytes include headers and accumulate over the flow lifetime.
+# The 300-second limit controls notification frequency, not the byte measurement window.
+alert tcp 10.10.1.0/24 any -> $EXTERNAL_NET any (msg:"MEDDEFENSE Large outbound TCP flow"; flow:to_server; flow.bytes:toserver,>50000000; threshold:type limit, track by_flow, count 1, seconds 300; classtype:policy-violation; sid:9000003; rev:1;)
+alert dns any any -> any any (msg:"MEDDEFENSE DNS query with long leftmost label"; dns.query; pcre:"/^[^.]{51}/"; classtype:policy-violation; sid:9000004; rev:1;)
+alert tcp 10.10.2.0/24 any -> !10.10.2.10 3306 (msg:"MEDDEFENSE Clinical to unauthorized database"; classtype:policy-violation; sid:9000005; rev:1;)
+alert tcp any any -> 10.10.4.0/24 23 (msg:"MEDDEFENSE Telnet to medical device"; classtype:policy-violation; sid:9000006; rev:1;)
+alert udp 10.10.4.0/24 any -> $EXTERNAL_NET !123 (msg:"MEDDEFENSE Med device UDP to Internet except NTP"; classtype:policy-violation; sid:9000007; rev:1;)
+
